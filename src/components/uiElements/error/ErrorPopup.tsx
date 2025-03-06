@@ -2,7 +2,7 @@ interface ErrorPopupProps {
   text: string;
   x: number;
   y: number;
-  seconds: number;
+  seconds?: number;
 }
 
 export default function ErrorPopup({text, x, y, seconds}: ErrorPopupProps) {
