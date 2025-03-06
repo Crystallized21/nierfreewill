@@ -15,4 +15,37 @@ function App() {
   );
 }
 
+export const RoutesConfig = {
+  RoutesConfigs: [
+    {
+      Text:`MAP`,
+      Link:`map`,
+    },
+    {
+      Text:"QUESTS",
+      Link:`quest`,
+    },
+    {
+      Text:"ITEMS",
+      Link:`items`
+    },
+    {
+      Text:"WEAPONS",
+      Link:`weapons`
+    },
+    {
+      Text:"SKILLS",
+      Link:`skills`
+    },
+    {
+      Text:"INTEL",
+      Link:`intel`
+    },
+    {
+      Text:"SYSTEM",
+      Link:`system`,
+    },
+  ]
+}
+
 export default App;
