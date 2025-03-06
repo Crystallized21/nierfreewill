@@ -8,6 +8,7 @@ import ErrorPopup from "../uiElements/error/ErrorPopup";
 
 import startup from "../../assets/audio/startup.mp3";
 import music from "../../assets/audio/music1.mp3";
+import error from "../../assets/audio/error.mp3";
 
 const credits = [
   "Project Director: You",
@@ -25,9 +26,12 @@ const credits = [
 export default function CreditsScroll() {
   const [showCredits, setShowCredits] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+
   const navigate = useNavigate();
+
   const [playMusic] = useSound(music);
   const [playStartup] = useSound(startup);
 
@@ -103,13 +107,13 @@ export default function CreditsScroll() {
               <GlitchText text="What is your decision?"/>
               <div className="flex flex-col gap-6 w-full px-6">
                 <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
-                <NierButton onClick={() => setShowErrorPopup(true)} text="Quit Life."/>
+                <NierButton onClick={() => setShowErrorPopup(true)} text="yes" clickSound={error}/>
               </div>
             </div>
           )}
         </>
       )}
-      {showErrorPopup && <ErrorPopup text="You do not have the autority to operate that command." x={mousePosition.x} y={mousePosition.y}/>}
+      {showErrorPopup && <ErrorPopup text="You do not have the authority to operate that command." x={mousePosition.x} y={mousePosition.y}/>}
     </div>
   );
 }

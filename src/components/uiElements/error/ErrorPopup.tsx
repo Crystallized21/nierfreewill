@@ -24,9 +24,10 @@ export default function ErrorPopup({text, x, y}: ErrorPopupProps) {
       style={{
         top: `${y}px`,
         left: `${x}px`,
-        transform: "translate(-50%, -50%)", // Centers it on the mouse
+        transform: "translate(0%, 635%)", // Moves the popup so bottom-center is at the cursor
         color: "#dcd8c0",
         width: "auto",
+        maxWidth: "calc(100vw - 20px)", // Ensure the popup doesn't exceed the viewport width
       }}
     >
       {/* Header */}

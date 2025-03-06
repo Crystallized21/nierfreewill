@@ -8,14 +8,18 @@ import confirmSfx from "../../../assets/audio/confirm.mp3";
 interface ButtonProps {
   text: string;
   onClick?: (e: React.MouseEvent) => void;
+  clickSound?: string;
 }
 
-export const NierButton = ({ text, onClick }: ButtonProps) => {
+export const NierButton = ({text, onClick, clickSound}: ButtonProps) => {
   const [playHover] = useSound(hoverSfx);
-  const [playConfirm] = useSound(confirmSfx);
+  const [playConfirm] = useSound(clickSound || confirmSfx);
 
   return (
-    <button className="button" onClick={(e) => { if (onClick) onClick(e); playConfirm(); }} onMouseEnter={() => playHover()}>
+    <button className="button" onClick={(e) => {
+      if (onClick) onClick(e);
+      playConfirm();
+    }} onMouseEnter={() => playHover()}>
       {text}
     </button>
   );
