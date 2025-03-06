@@ -74,7 +74,7 @@ export default function CreditsScroll() {
         <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
           <h2 className="text-2xl mb-4">What is your decision?</h2>
           <div className="flex flex-col gap-6 w-full px-6">
-            <NierButton onClick={() => navigate("/os")} text="Enter OS"/>
+            <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
             <NierButton text="Quit Life."/>
           </div>
         </div>
