@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {Button} from "../uiElements/Button.tsx";
+import {NierButton} from "../uiElements/button/NierButton.tsx";
+import {useNavigate} from "react-router-dom";
 
 const credits = [
   "Project Director: You",
@@ -12,6 +13,7 @@ const credits = [
 
 export default function CreditsScroll() {
   const [showCredits, setShowCredits] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,8 +74,8 @@ export default function CreditsScroll() {
         <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
           <h2 className="text-2xl mb-4">What is your decision?</h2>
           <div className="flex flex-col gap-6 w-full px-6">
-            <Button text="Enter OS"/>
-            <Button text="Quit Life."/>
+            <NierButton onClick={() => navigate("/os")} text="Enter OS"/>
+            <NierButton text="Quit Life."/>
           </div>
         </div>
       )}
