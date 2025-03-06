@@ -134,7 +134,7 @@ export default function CreditsScroll() {
               <GlitchText text="What is your decision?"/>
               <div className="flex flex-col gap-6 w-full px-6">
                 <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
-                <NierButton onClick={() => setShowErrorPopup(true)} text="yes" clickSound={error}/>
+                <NierButton onClick={() => setShowErrorPopup(true)} text="Quit Life." clickSound={error}/>
               </div>
             </div>
           )}
