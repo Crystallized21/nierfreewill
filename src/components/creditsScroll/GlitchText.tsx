@@ -5,12 +5,12 @@ interface GlitchTextProps {
 }
 
 export default function GlitchText({text}: GlitchTextProps) {
-  const [glitchShadow, setGlitchShadow] = useState("0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 40px rgba(255, 255, 255, 1), 0px 0px 60px rgba(255, 255, 255, 1)");
+  const [glitchShadow, setGlitchShadow] = useState("0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 40px rgba(255, 255, 255, 0.6), 0px 0px 60px rgba(255, 255, 255, 0.4)");
   const [clipPath, setClipPath] = useState("inset(0% 0% 0% 0%)");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const offset = Math.floor(Math.random() * 240) - 120; // Large range for left/right movement
+      const offset = Math.floor(Math.random() * 360) - 120; // Large range for left/right movement
       setGlitchShadow(`
             ${offset}px 0px 0px red,
             ${-offset}px 0px 0px blue,
