@@ -1,7 +1,11 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {useState, useEffect} from "react";
+import {motion, AnimatePresence} from "framer-motion";
 import {NierButton} from "../uiElements/button/NierButton.tsx";
 import {useNavigate} from "react-router-dom";
+import useSound from 'use-sound';
+
+import startup from "../../assets/audio/startup.mp3";
+import music from "../../assets/audio/music1.mp3";
 
 const credits = [
   "Project Director: You",
@@ -13,7 +17,9 @@ const credits = [
 
 export default function CreditsScroll() {
   const [showCredits, setShowCredits] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [playMusic] = useSound(music);
+  const [playStartup] = useSound(startup);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +30,13 @@ export default function CreditsScroll() {
   }, []);
 
   useEffect(() => {
-    const audio = new Audio("../../assets/audio/startup.mp3");
-    audio.play().catch(() => {
-      console.warn("Autoplay blocked. User interaction required.");
-    });
-  }, []);
+    const handleClick = () => {
+      playStartup();
+      playMusic();
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [playMusic, playStartup]);
 
   return (
     <div className="h-[150vh] bg-black text-white overflow-hidden relative">
@@ -37,14 +45,14 @@ export default function CreditsScroll() {
         {!showCredits && (
           <motion.div
             className="fixed inset-0 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 2}}
           >
             <motion.h1
               className="text-4xl text-center glitch"
-              initial={{ textShadow: "0px 0px 0px white" }}
+              initial={{textShadow: "0px 0px 0px white"}}
               animate={{
                 textShadow: [
                   "6px 0px 0px red",
@@ -54,7 +62,7 @@ export default function CreditsScroll() {
                   "6px 0px 0px green"
                 ]
               }}
-              transition={{ repeat: Infinity, duration: 0.15 }}
+              transition={{repeat: Infinity, duration: 0.15}}
             >
               Nothing can exist forever.
             </motion.h1>
@@ -65,9 +73,9 @@ export default function CreditsScroll() {
       {/* Scrolling Credits */}
       {showCredits && (
         <motion.div
-          initial={{ y: "-100%" }}
-          animate={{ y: "1000%" }}
-          transition={{ duration: 15, ease: "linear" }}
+          initial={{y: "-100%"}}
+          animate={{y: "1000%"}}
+          transition={{duration: 15, ease: "linear"}}
           className="absolute top-0 left-0 w-full text-center"
         >
           {credits.map((line, index) => (
@@ -78,7 +86,8 @@ export default function CreditsScroll() {
 
       {/* Decision Section */}
       {showCredits && (
-        <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
+        <div
+          className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
           <h2 className="text-2xl mb-4">What is your decision?</h2>
           <div className="flex flex-col gap-6 w-full px-6">
             <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
