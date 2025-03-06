@@ -30,6 +30,9 @@ export default function CreditsScroll() {
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
 
+  const [errorPopupTime, setErrorPopupTime] = useState(0);
+  const [errorPopupStartTime, setErrorPopupStartTime] = useState<number | null>(null);
+
   const navigate = useNavigate();
 
   const [playMusic] = useSound(music);
@@ -52,6 +55,29 @@ export default function CreditsScroll() {
       return () => window.removeEventListener("mousemove", updateMousePosition);
     }
   }, [showErrorPopup]);
+
+  // Timer updater using a persistent start time
+  useEffect(() => {
+    if (errorPopupStartTime !== null) {
+      const timer = setInterval(() => {
+        setErrorPopupTime(Number(((Date.now() - errorPopupStartTime) / 1000).toFixed(2)));
+      }, 1);
+      return () => clearInterval(timer);
+    }
+  }, [errorPopupStartTime]);
+
+  // Auto-hide the error popup and set the start time if needed.
+  useEffect(() => {
+    if (showErrorPopup && errorPopupStartTime === null) {
+      setErrorPopupStartTime(Date.now());
+    }
+    if (showErrorPopup) {
+      const timeout = setTimeout(() => {
+        setShowErrorPopup(false);
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showErrorPopup, errorPopupStartTime]);
 
   const handleStart = () => {
     setHasStarted(true);
@@ -103,7 +129,8 @@ export default function CreditsScroll() {
 
           {showCredits && (
             <div
-              className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
+              className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2"
+            >
               <GlitchText text="What is your decision?"/>
               <div className="flex flex-col gap-6 w-full px-6">
                 <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
@@ -113,7 +140,14 @@ export default function CreditsScroll() {
           )}
         </>
       )}
-      {showErrorPopup && <ErrorPopup text="You do not have the authority to operate that command." x={mousePosition.x} y={mousePosition.y}/>}
+      {showErrorPopup && (
+        <ErrorPopup
+          text="You do not have the authority to operate that command."
+          x={mousePosition.x}
+          y={mousePosition.y}
+          seconds={errorPopupTime}
+        />
+      )}
     </div>
   );
 }

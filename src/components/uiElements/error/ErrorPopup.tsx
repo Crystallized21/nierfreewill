@@ -1,23 +1,11 @@
-import {useState, useEffect} from "react";
-
 interface ErrorPopupProps {
   text: string;
   x: number;
   y: number;
+  seconds: number;
 }
 
-export default function ErrorPopup({text, x, y}: ErrorPopupProps) {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const startTime = Date.now();
-    const interval = setInterval(() => {
-      setSeconds(Number(((Date.now() - startTime) / 1000).toFixed(2)));
-    }, 1);
-
-    return () => clearInterval(interval);
-  }, []);
-
+export default function ErrorPopup({text, x, y, seconds}: ErrorPopupProps) {
   return (
     <div
       className="absolute bg-red-400 text-white font-sans text shadow-lg border border-red-600"
@@ -46,9 +34,9 @@ export default function ErrorPopup({text, x, y}: ErrorPopupProps) {
           color: "#dcd8c0",
         }}
       >
-        <span className="font-medium tracking-wide text-shadow-black">
-          {text}
-        </span>
+          <span className="font-medium tracking-wide text-shadow-black">
+            {text}
+          </span>
       </div>
     </div>
   );
