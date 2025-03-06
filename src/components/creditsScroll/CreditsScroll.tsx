@@ -23,6 +23,13 @@ export default function CreditsScroll() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const audio = new Audio("../../assets/audio/startup.mp3");
+    audio.play().catch(() => {
+      console.warn("Autoplay blocked. User interaction required.");
+    });
+  }, []);
+
   return (
     <div className="h-[150vh] bg-black text-white overflow-hidden relative">
       {/* Intro Text */}
