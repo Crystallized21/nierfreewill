@@ -69,13 +69,11 @@ export default function CreditsScroll() {
 
       {/* Decision Section */}
       {showCredits && (
-        <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6">
+        <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2">
           <h2 className="text-2xl mb-4">What is your decision?</h2>
           <div className="flex flex-col gap-6 w-full px-6">
-            <Button/>
-            <button className="w-full px-6 py-3 bg-red-800 text-white border-2 border-white hover:bg-red-700 transition">
-              {/* Add button text here */}
-            </button>
+            <Button text="Enter OS"/>
+            <Button text="Quit Life."/>
           </div>
         </div>
       )}

@@ -47,8 +47,8 @@ button:not(:disabled),
 }
 button:not(:disabled):hover,
 .button:hover {
-    -webkit-box-shadow: 0 0 1em 0 #bab5a1;
-    box-shadow: 0 0 1em 0 #bab5a1;
+        /*-webkit-box-shadow: 0.2em 0.2em 0.1em 0 #bab5a1;*/
+        /*box-shadow: 0.2em 0.2em 0.1em 0 #bab5a1;*/
 }
 button:not(:disabled):before,
 .button:before {

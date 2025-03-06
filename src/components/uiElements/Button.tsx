@@ -1,5 +1,13 @@
 import "./Button.css";
 
-export const Button = () => {
-  return <button className="button">I dont know</button>;
+interface ButtonProps {
+  text: string;
+}
+
+export const Button = ({ text }: ButtonProps) => {
+  return (
+    <button className="button">
+      {text}
+    </button>
+  );
 };
