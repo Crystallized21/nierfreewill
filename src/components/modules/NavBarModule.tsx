@@ -1,8 +1,8 @@
 import {Bar} from "../uiElements/osInterface/Bar.tsx";
 import styles from '../uiElements/osInterface/NavBar/Navbar.module.scss';
-import {RoutesConfig} from "../../App.tsx";
 import {YorhaNavLink} from "../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
 import {Outlet} from "react-router-dom";
+import {RoutesConfig} from "../../RoutesConfig.tsx";
 
 export const NavbarModule = () => {
   return (
