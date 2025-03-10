@@ -1,4 +1,4 @@
-import {JSX, useEffect, useState} from "react"
+import {JSX, useEffect, useState} from "react";
 
 /**
  * `LoadingDots` is a React functional component that displays an animated
@@ -17,19 +17,19 @@ import {JSX, useEffect, useState} from "react"
  * increments over time.
  */
 export const LoadingDots = (): JSX.Element => {
-  const [dots, setDots] = useState<string>("")
+  const [dots, setDots] = useState<string>("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDots((prev) => {
-        if (prev.length === 3) return ""
-        return prev + "."
-      })
-    }, 500)
+        if (prev.length === 3) return "";
+        return prev + ".";
+      });
+    }, 500);
 
     // Cleanup timeout to avoid memory leaks
-    return () => clearTimeout(timer)
-  }, [dots])
+    return () => clearTimeout(timer);
+  }, [dots]);
 
-  return <span style={{opacity:0.8}}>{dots}</span>
-}
+  return <span style={{opacity:0.8}}>{dots}</span>;
+};

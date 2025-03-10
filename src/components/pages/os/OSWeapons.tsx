@@ -9,11 +9,11 @@ const OSWeapons = () => {
 
   const TypeChecker = () => {
     if (!param.list) {
-      return ""
+      return "";
     } else {
-      return "- Weapons"
+      return "- Weapons";
     }
-  }
+  };
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
@@ -37,7 +37,7 @@ const OSWeapons = () => {
         footer="View all of the weapons in your possession."
       />
     </div>
-  )
-}
+  );
+};
 
 export default OSWeapons;

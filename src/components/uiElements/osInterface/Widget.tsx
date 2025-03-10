@@ -25,7 +25,7 @@ interface WidgetProps {
 
 const darkIcon = {
   bg: `${colors.colors[0].hex}`
-}
+};
 
 const WidgetParent = styled.div`
     width: 100%;
@@ -33,7 +33,7 @@ const WidgetParent = styled.div`
     background-color: #dad4bb;
     display: flex;
     flex-direction: column;
-`
+`;
 
 const Title = styled.div`
     width: 100%;
@@ -50,13 +50,13 @@ const Title = styled.div`
         background-color: ${props => props.theme.bg};;
         content: "";
     }
-`
+`;
 
 Title.defaultProps = {
   theme: {
     bg: `${colors.colors[2].hex}`
   }
-}
+};
 
 const Header = styled.div`
     display: flex;
@@ -84,7 +84,7 @@ Header.defaultProps = {
     main: `${colors.colors[1].hex}`,
     color: `${colors.colors[2].hex}`
   }
-}
+};
 
 const theme = {
   main: `${colors.colors[2].hex}`,
@@ -101,25 +101,25 @@ export const Widget = ({dark = false, title, content, lvl, icon = true}: WidgetP
               <span>{title}</span> <span>{lvl}</span>
             </Title>
           </ThemeProvider>
-        )
+        );
       } else {
         return (
           <Title>
             <span>{title}</span> <span>{lvl}</span>
           </Title>
-        )
+        );
       }
     } else {
       return <></>;
     }
-  }
+  };
   const checker = () => {
     if (dark === false) {
       return (
         <Header>
           {iconChecker()}
         </Header>
-      )
+      );
     } else {
       return (
         <ThemeProvider theme={theme}>
@@ -127,9 +127,9 @@ export const Widget = ({dark = false, title, content, lvl, icon = true}: WidgetP
             {iconChecker()}
           </Header>
         </ThemeProvider>
-      )
+      );
     }
-  }
+  };
   return (
     <WidgetParent>
       {checker()}
@@ -137,5 +137,5 @@ export const Widget = ({dark = false, title, content, lvl, icon = true}: WidgetP
         {content}
       </Content>
     </WidgetParent>
-  )
-}
+  );
+};

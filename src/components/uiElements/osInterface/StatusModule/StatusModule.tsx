@@ -55,7 +55,7 @@ const StatusModule = () => {
         </div>
       }
     />
-  )
-}
+  );
+};
 
 export default StatusModule;

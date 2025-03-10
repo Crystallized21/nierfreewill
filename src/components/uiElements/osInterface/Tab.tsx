@@ -14,7 +14,7 @@ const StyledTab = styled.div`
     padding: 0rem 1rem 0rem 1rem;
     background-color: #dad4bb;
     justify-content: space-between;
-`
+`;
 
 const Separator = styled.div`
   width: 100%;
@@ -29,7 +29,7 @@ const Separator = styled.div`
     opacity: 0;
     width: 0;
   }
-`
+`;
 
 const SeparatorStyle = styled.div`
   display: flex;
@@ -38,14 +38,14 @@ const SeparatorStyle = styled.div`
   gap: 1.2rem;
   align-items: center;
 
-`
+`;
 
 const Dot = styled.div`
   height: 0.3rem;
   width: 0.3rem;
   background-color: #b4af9a;
   border-radius: 50%;
-`
+`;
 
 const Content = styled.div`
   overflow-y: scroll;
@@ -61,7 +61,7 @@ const Content = styled.div`
   background-color: #4e4b42;
 
 }
-`
+`;
 
 export const Tab = ({content, className}:TabProps) =>{
   return(
@@ -72,5 +72,5 @@ export const Tab = ({content, className}:TabProps) =>{
       </Content>
       <SeparatorStyle><Separator/> <Dot/></SeparatorStyle>
     </StyledTab>
-  )
-}
+  );
+};

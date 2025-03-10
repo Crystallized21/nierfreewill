@@ -42,7 +42,7 @@ const ItemsLists = [
     Text: "Caught Fish",
     type: "fish",
   }
-]
+];
 
 const OSItems = () => {
 
@@ -54,23 +54,23 @@ const OSItems = () => {
     if (type === "") {
       return "all items";
     } else if (!type) {
-      return "items in your inventory"
+      return "items in your inventory";
     } else if (param.type === 'materials') {
-      return param.type
+      return param.type;
     } else if (param.type === 'caught fish') {
-      return param.type
+      return param.type;
     } else {
-      return `${param.type} items`
+      return `${param.type} items`;
     }
-  }
+  };
 
   const TypeCheck = () => {
     if (type === "") {
-      return "all"
+      return "all";
     } else {
-      return param.type
+      return param.type;
     }
-  }
+  };
 
   return (
     <div className={OSstyles.MainContent}>
@@ -93,7 +93,7 @@ const OSItems = () => {
         footer={`View all ${Footer()}.`}
       />
     </div>
-  )
-}
+  );
+};
 
 export default OSItems;

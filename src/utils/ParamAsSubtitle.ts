@@ -7,9 +7,9 @@ export function SubTitle(ParamType: string | undefined, ParamTail: string) {
   let strip = "- ";
   if (ParamType === undefined) {
     subTitle = "";
-    strip = ""
+    strip = "";
   }
   return (
     strip + capitalizeFirstLetter(subTitle)
-  )
+  );
 }

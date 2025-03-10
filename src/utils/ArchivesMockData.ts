@@ -1,4 +1,4 @@
-import unit from '../assets/unit.png'
+import unit from '../assets/unit.png';
 
 const archivesMockData = [
   {

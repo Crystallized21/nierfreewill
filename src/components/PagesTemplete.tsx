@@ -25,7 +25,7 @@ const PagesTemplate = ({title, footer, child, subtitle, className}:  PagesTempla
         <Footer text={footer} />
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
 export default PagesTemplate;

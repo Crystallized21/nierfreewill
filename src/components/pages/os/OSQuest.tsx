@@ -22,7 +22,7 @@ const QuestList = [
     Text: "Cleared Quests",
     type: "cleared",
   },
-]
+];
 
 const OSQuest = () => {
 
@@ -39,14 +39,14 @@ const OSQuest = () => {
       return "all quests";
     } else if (status === "")
       return "all accepted quests";
-  }
+  };
 
   const TypeCheck = () => {
     if (status === "") {
-      return "all"
+      return "all";
     } else
-      return param.statusType
-  }
+      return param.statusType;
+  };
 
   return (
     <div className={OSstyles.MainContent}>
@@ -72,7 +72,7 @@ const OSQuest = () => {
         }
       />
     </div>
-  )
-}
+  );
+};
 
 export default OSQuest;

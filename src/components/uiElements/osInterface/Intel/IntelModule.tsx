@@ -1,5 +1,5 @@
 import {Outlet, useLocation, useSearchParams} from "react-router-dom";
-import styles from './IntelModule.module.scss'
+import styles from './IntelModule.module.scss';
 import {YorhaNavLink} from "../NavBar/YorhaNavLink.tsx";
 import {Bar} from "../Bar.tsx";
 import {Tab} from "../Tab.tsx";
@@ -14,7 +14,7 @@ export const IntelModule = () => {
   const intelList = getArchivesMockData();
 
   const first = intelList.filter((intelList) => {
-    const filter = searchParams.get("type")
+    const filter = searchParams.get("type");
 
     if (!filter) return true;
     const type = intelList.IntelType;
@@ -22,13 +22,13 @@ export const IntelModule = () => {
     return type.startsWith(filter);
   }).map((item) =>
     item.data.map((test) => {
-        return (<YorhaNavLink variant="transparent" to={test.id + location.search} text={test.title} key={test.id}/>)
+        return (<YorhaNavLink variant="transparent" to={test.id + location.search} text={test.title} key={test.id}/>);
       }
     )
-  )
+  );
 
   const second = intelList.filter((intelList) => {
-    const filter = searchParams.get("type")
+    const filter = searchParams.get("type");
 
     if (!filter) return true;
     const type = intelList.IntelType;
@@ -49,12 +49,12 @@ export const IntelModule = () => {
                   text={yeah.title}
                 />
               </div>
-            )
+            );
           })
         }
       />
-    )
-  }))
+    );
+  }));
 
   const third = second[0].concat(first[0]);
   return (
@@ -74,5 +74,5 @@ export const IntelModule = () => {
         <Outlet/>
       </div>
     </div>
-  )
-}
+  );
+};

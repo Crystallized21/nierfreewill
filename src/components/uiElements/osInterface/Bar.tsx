@@ -26,7 +26,7 @@ BarItem.defaultProps = {
   theme: {
     main: `${colors.colors[1].hex}`
   }
-}
+};
 
 const theme = {
   main: `${colors.colors[2].hex}`
@@ -40,19 +40,19 @@ export const Bar = ({dark = false, ...props}: BarProps) => {
           <BarItem/>
           <BarItem/>
         </>
-      )
+      );
     } else if (dark === true) {
       return (
         <ThemeProvider theme={theme}>
           <BarItem/>
           <BarItem/>
         </ThemeProvider>
-      )
+      );
     }
-  }
+  };
   return (
     <BarParent {...props}>
       {checker()}
     </BarParent>
-  )
-}
+  );
+};

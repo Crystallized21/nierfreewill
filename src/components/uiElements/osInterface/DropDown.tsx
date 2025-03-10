@@ -16,7 +16,7 @@ const Symbol = styled.span`
         background-position: -100%;
         color: #57544a;
     }
-`
+`;
 
 const StyledSummary = styled.summary`
     width: 100%;
@@ -79,7 +79,7 @@ const StyledSummary = styled.summary`
         pointer-events: none;
       }
     } */
-`
+`;
 
 export const DropDown = ({Title, Content}: DropDownTypes) => {
 
@@ -111,5 +111,5 @@ export const DropDown = ({Title, Content}: DropDownTypes) => {
       </StyledSummary>
       {Content}
     </details>
-  )
-}
+  );
+};

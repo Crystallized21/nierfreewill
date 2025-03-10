@@ -4,7 +4,7 @@ const OSLoad = () => {
   return (
     <Loading/>
   );
-}
+};
 
 
 export default OSLoad;

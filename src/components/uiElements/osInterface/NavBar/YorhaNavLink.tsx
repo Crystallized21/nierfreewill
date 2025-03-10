@@ -54,8 +54,8 @@ export const YorhaCustomLink = ({
         </NavLink>
       </Button>
     </div>
-  )
-}
+  );
+};
 
 const Button = styled.button`
     padding: 0;
@@ -71,7 +71,7 @@ const Button = styled.button`
         opacity: 0.6;
         pointer-events: none;
     }
-`
+`;
 
 const CustomNavLink = styled(YorhaCustomLink)`
     .mainClass {
@@ -180,7 +180,7 @@ const CustomNavLink = styled(YorhaCustomLink)`
     .active > .wrapper {
         color: #b4af9a;
     }
-`
+`;
 
 CustomNavLink.defaultProps = {
   theme: {
@@ -204,7 +204,7 @@ const neutral = {
   backgroundImage: `linear-gradient(90deg, #b4af9a 50%, #b4af9a 50%, #57544a 50%, #57544a 100%)`,
   width: `100%`,
   padding: `0rem`
-}
+};
 
 export const YorhaNavLink = ({
   to,
@@ -221,33 +221,33 @@ export const YorhaNavLink = ({
       return (
         <CustomNavLink to={to} filter={filter} text={text} filterType={filterType} variant={variant}
                        clickSound={clickSound} {...props}/>
-      )
+      );
     } else if (variant === "button") {
       return (
         <ThemeProvider theme={theme}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
                          clickSound={clickSound} {...props}/>
         </ThemeProvider>
-      )
+      );
     } else if (variant === "transparent") {
       return (
         <ThemeProvider theme={transparent}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
                          clickSound={clickSound} {...props}/>
         </ThemeProvider>
-      )
+      );
     } else if (variant === "neutral") {
       return (
         <ThemeProvider theme={neutral}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
                          clickSound={clickSound} {...props}/>
         </ThemeProvider>
-      )
+      );
     }
-  }
+  };
   return (
     <>
       {checker()}
     </>
-  )
-}
+  );
+};

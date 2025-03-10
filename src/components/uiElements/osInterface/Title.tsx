@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from "styled-components";
 // @ts-expect-error i have no fucking idea why this doesn't work
 import ShuffleText from 'react-shuffle-text';
-import colors from './colors.json'
+import colors from './colors.json';
 
 type TitleProps = {
   title?: string;
@@ -32,7 +32,7 @@ const TitleParent = styled.div`
     letter-spacing: 0px;
     font-size: 24px;
   }
-`
+`;
 
 export const Title = ({title, subtitle, ...props}: TitleProps) => {
   return(
@@ -40,5 +40,5 @@ export const Title = ({title, subtitle, ...props}: TitleProps) => {
       <h1><ShuffleText charIncIntervale={10} charFrames={20} charFrameTime={10} content={title}/></h1>
       <h3><ShuffleText charIncIntervale={10} charFrames={20} charFrameTime={10} content={subtitle}/></h3>
     </TitleParent>
-  )
-}
+  );
+};

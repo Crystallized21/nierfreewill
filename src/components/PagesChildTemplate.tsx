@@ -40,7 +40,7 @@ const PagesChildTemplate = ({
         {RightContent}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default PagesChildTemplate;

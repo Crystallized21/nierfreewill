@@ -1,12 +1,12 @@
 import {useParams} from "react-router-dom";
-import Fishing from './Shards/Fishing.tsx'
-import Novel from './Shards/Novel.tsx'
-import PictureBooks from './Shards/PictureBooks.tsx'
-import Tutorials from './Shards/Tutorials.tsx'
-import Unit from './Shards/Unit.tsx'
-import WeaponStories from './Shards/WeaponStories.tsx'
-import Archives from './Shards/Archives.tsx'
-import styles from './IntelModule.module.scss'
+import Archives from './Shards/Archives.tsx';
+import Fishing from './Shards/Fishing.tsx';
+import Novel from './Shards/Novel.tsx';
+import PictureBooks from './Shards/PictureBooks.tsx';
+import Tutorials from './Shards/Tutorials.tsx';
+import Unit from './Shards/Unit.tsx';
+import WeaponStories from './Shards/WeaponStories.tsx';
+import styles from './IntelModule.module.scss';
 import {getArchivesMockID, getNestedArchivesMockID} from "../../../../utils/ArchivesMockData.ts";
 import {Widget} from "../Widget.tsx";
 import {Tab} from "../Tab.tsx";
@@ -33,20 +33,19 @@ const ActiveIntelModule = () => {
         picturebooks: <PictureBooks/>,
         fishingencyclopedia: <Fishing/>,
         novel: <Novel/>
-      }
+      };
 
-      // @ts-expect-error fejiowjfwoijfioewfj
-      return typeMap[paramType] || <>archives yet to be handled</>;
-    }
+      return typeMap[paramType as keyof typeof typeMap] || <>archives yet to be handled</>;
+    };
 
     const handleModal = () => {
-      return console.log("hello")
-    }
+      return console.log("hello");
+    };
 
     const ImageCheck = () => {
       if (data?.image) {
         if (Array.isArray(data?.image)) {
-          return <>an array of images</>
+          return <>an array of images</>;
         } else {
           return (
             <div className={styles.ActiveIntelContent}>
@@ -57,12 +56,12 @@ const ActiveIntelModule = () => {
               </div>
               <div className={styles.content}>{ArchivesTypeCheck()}</div>
             </div>
-          )
+          );
         }
       } else {
-        return <>{ArchivesTypeCheck()}</>
+        return <>{ArchivesTypeCheck()}</>;
       }
-    }
+    };
 
     return (
       <Widget
@@ -76,10 +75,10 @@ const ActiveIntelModule = () => {
           }/>
         }
       />
-    )
+    );
   }
 
   return null;
-}
+};
 
 export default ActiveIntelModule;

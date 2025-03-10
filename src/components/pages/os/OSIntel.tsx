@@ -3,6 +3,7 @@ import PagesTemplate from "../../PagesTemplete.tsx";
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
+import OSstyles from "./OS.module.scss";
 
 const IntelList = [
   {
@@ -40,29 +41,32 @@ const IntelList = [
     link: "/os/intel/novel/?type=",
     type: "novel",
   }
-]
+];
 
 const OSIntel = () => {
   return (
-    <PagesTemplate
-      title="Intel"
-      child={
-        <PagesChildTemplate
-          LeftContent=
-            {IntelList.map((item) => (
-              <YorhaNavLink key={Math.random()} text={item.name} to={item.link} filter={item.type} filterType={"type"}/>
-            ))}
-          Outlet={
-            <Outlet/>
-          }
-          RightContent={
-            <StatusModule/>
-          }
-        />
-      }
-      footer="View information about encountered units and foes"
-    />
-  )
-}
+    <div className={OSstyles.MainContent}>
+      <PagesTemplate
+        title="Intel"
+        child={
+          <PagesChildTemplate
+            LeftContent=
+              {IntelList.map((item) => (
+                <YorhaNavLink key={Math.random()} text={item.name} to={item.link} filter={item.type}
+                              filterType={"type"}/>
+              ))}
+            Outlet={
+              <Outlet/>
+            }
+            RightContent={
+              <StatusModule/>
+            }
+          />
+        }
+        footer="View information about encountered units and foes"
+      />
+    </div>
+  );
+};
 
 export default OSIntel;

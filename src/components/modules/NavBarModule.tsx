@@ -18,7 +18,7 @@ export const NavbarModule = () => {
               <div key={item.Text} className={styles.nav}>
                 <YorhaNavLink variant="nav" key={item.Text} to={`/${item.Link}`} text={item.Text}/>
               </div>
-            )
+            );
           })}
         </div>
         <hr/>
@@ -28,5 +28,5 @@ export const NavbarModule = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

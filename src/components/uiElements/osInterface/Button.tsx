@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import colors from './colors.json'
+import colors from './colors.json';
 
 type ButtonProps = {
   // icon?: any;
@@ -79,7 +79,7 @@ const ParentElement = styled.div`
             pointer-events: none;
         }
     }
-`
+`;
 
 const Switch = styled.label`
     position: relative;
@@ -88,7 +88,7 @@ const Switch = styled.label`
     width: 100%;
     height: 100%;
     z-index: 10;
-`
+`;
 
 const ButtonParent = styled.div`
     pointer-events: auto;
@@ -142,7 +142,7 @@ const ButtonVariant = styled.button`
         opacity: 0.6;
         pointer-events: none;
     }
-`
+`;
 
 
 const SwitchInput = styled.input.attrs({
@@ -161,7 +161,7 @@ const SwitchInput = styled.input.attrs({
         opacity: 0.6;
         pointer-events: none;
     }
-`
+`;
 
 const Wrapper = styled.div`
     font-size: 1rem;
@@ -170,13 +170,13 @@ const Wrapper = styled.div`
     gap: 10px;
     align-items: center;
     justify-content: left;
-`
+`;
 
 ButtonParent.defaultProps = {
   theme: {
     main: `1`
   }
-}
+};
 
 export const Button = ({text, variant = 'button', disabled, ...props}: ButtonProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
@@ -194,13 +194,13 @@ export const Button = ({text, variant = 'button', disabled, ...props}: ButtonPro
     if (isChecked === true) {
       return (
         <IconAlt/>
-      )
+      );
     } else {
       return (
         <Icon/>
-      )
+      );
     }
-  }
+  };
 
   const variantChecker = () => {
     if (variant === 'button') {
@@ -213,7 +213,7 @@ export const Button = ({text, variant = 'button', disabled, ...props}: ButtonPro
             </Wrapper>
           </ButtonVariant>
         </ParentElement>
-      )
+      );
     } else if (variant === 'checkbox') {
       return (
         <ParentElement>
@@ -227,13 +227,13 @@ export const Button = ({text, variant = 'button', disabled, ...props}: ButtonPro
             </ButtonParent>
           </Switch>
         </ParentElement>
-      )
+      );
     }
-  }
+  };
 
   return (
     <>
       {variantChecker()}
     </>
-  )
-}
+  );
+};

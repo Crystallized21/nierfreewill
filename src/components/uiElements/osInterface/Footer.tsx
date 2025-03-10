@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Bar } from "./Bar.tsx";
-import colors from './colors.json'
+import colors from './colors.json';
 
 type FooterProps = {
   text?: string;
@@ -14,14 +14,14 @@ const FooterParent = styled.div`
   flex-direction: row;
   background-color: ${colors.colors[0].hex};
   align-items: center;
-`
+`;
 
 const TextContainer = styled.div`
 font-size: 24px;
   padding: 1rem;
   color: ${colors.colors[2].hex};
   align-items: center;
-`
+`;
 
 export const Footer = ({text, ...props}: FooterProps) => {
   return(
@@ -31,5 +31,5 @@ export const Footer = ({text, ...props}: FooterProps) => {
         {text}
       </TextContainer>
     </FooterParent>
-  )
-}
+  );
+};
