@@ -9,6 +9,9 @@ import OSLayout from "./components/pages/os/OSLayout.tsx";
 import OSItems from "./components/pages/os/OSItems.tsx";
 import OSWeapons from "./components/pages/os/OSWeapons.tsx";
 import OSSkills from "./components/pages/os/OSSkills.tsx";
+import OSIntel from "./components/pages/os/OSIntel.tsx";
+import {IntelModule} from "./components/uiElements/osInterface/Intel/IntelModule.tsx";
+import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveIntelModule.tsx";
 
 function App() {
   return (
@@ -24,7 +27,11 @@ function App() {
           <Route path="/os/items" element={<OSItems/>}/>
           <Route path="/os/weapons" element={<OSWeapons/>}/>
           <Route path="/os/skills" element={<OSSkills/>}/>
-          <Route path="/os/intel" element={<TestSite/>}/>
+          <Route path="/os/intel" element={<OSIntel/>}>
+            <Route path={':type'} element={<IntelModule/>}>
+              <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
+            </Route>
+          </Route>
           <Route path="/os/system" element={<TestSite/>}/>
         </Route>
       </Routes>
