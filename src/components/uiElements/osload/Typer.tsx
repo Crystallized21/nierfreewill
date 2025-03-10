@@ -41,7 +41,7 @@ const GlitchingP = styled.p`
 export const Typer = ({
   receivedText,
   callBack,
-  speed = 25,
+  speed = 22.5,
 }: TyperProps): JSX.Element => {
   const [typingText, setTypingText] = useState<string[]>([""]);
 
