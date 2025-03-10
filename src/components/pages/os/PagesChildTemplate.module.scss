@@ -1,0 +1,60 @@
+.ChildTemplateContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4%;
+
+  .PagesChildTemplate {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .ChildContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+      height: max-content;
+
+      .Bar {
+        height: 100%;
+      }
+
+      .LeftContent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    .OutletChild {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .MiddleContent {
+    width: 100%;
+    height: 100%;
+  }
+
+  .RightContent {
+    width: 100%;
+    height: 100%;
+  }
+
+  .extraSpace {
+    width: 200%;
+    height: 100%;
+  }
+
+  .lessRightSpace {
+    width: 0%;
+  }
+}
