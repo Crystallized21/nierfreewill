@@ -1,7 +1,7 @@
 import styled, {ThemeProvider} from "styled-components";
 import {NavLink, useSearchParams} from "react-router-dom";
 import * as React from "react";
-import {useSoundEffects} from "../../../useSoundEffects.ts";
+import {useSoundEffects} from "../../../../hooks/useSoundEffects.ts";
 
 type YorhaNavLinkProps = {
   text?: React.ReactNode;
