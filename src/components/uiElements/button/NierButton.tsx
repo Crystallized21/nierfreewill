@@ -1,4 +1,4 @@
-import "./NierButton.css";
+import styles from "./NierButton.module.css";
 import * as React from "react";
 import {useSoundEffects} from "../../../hooks/useSoundEffects.ts";
 
@@ -13,7 +13,7 @@ export const NierButton = ({text, onClick, clickSound}: ButtonProps) => {
 
   return (
     <button
-      className="button"
+      className={styles.nierButton}
       onClick={(e) => {
         if (onClick) onClick(e);
         playConfirm();
