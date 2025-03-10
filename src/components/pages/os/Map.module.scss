@@ -1,0 +1,42 @@
+
+.ContentContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  gap: 10%;
+
+  .LeftPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .LeftPanelChild {
+      display: flex;
+      flex-direction: row;
+      height: max-content;
+      gap: 2em;
+
+      .Button {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+
+  .RightPanel {
+    width: 100%;
+    background-color: #57544a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .MapPanel {
+      color: #b4af9a;
+    }
+  }
+}
