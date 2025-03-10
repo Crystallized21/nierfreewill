@@ -10,16 +10,14 @@ TODO: Add route changing animation
 */
 
 const Main = styled.main`
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85) url(${yorhaLogo}) center center no-repeat;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-  text-shadow: 0px 0px 5px white;
-  padding: 2% 4% 4% 4%;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85) url(${yorhaLogo}) no-repeat center;
+    color: white;
+    text-shadow: 0px 0px 5px white;
+    padding: 2% 4% 4% 4%;
+    display: flex;
+    flex-direction: column;
 `;
 const Header = styled.header`
   display: flex;
@@ -54,7 +52,7 @@ export const Loading = () => {
 
   const loadingCompleted = () => {
     setTimeout(() => {
-      navigate("/map");
+      navigate("/os/map");
     }, waitingTime);
   };
 

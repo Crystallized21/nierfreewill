@@ -1,5 +1,5 @@
-import {Bar} from "../uiElements/osInterface/Bar.tsx";
 import styles from '../uiElements/osInterface/NavBar/Navbar.module.scss';
+import {Bar} from "../uiElements/osInterface/Bar.tsx";
 import {YorhaNavLink} from "../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
 import {Outlet} from "react-router-dom";
 import {RoutesConfig} from "../../RoutesConfig.tsx";

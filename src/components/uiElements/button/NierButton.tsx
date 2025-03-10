@@ -1,6 +1,6 @@
 import "./NierButton.css";
 import * as React from "react";
-import {useSoundEffects} from "../../useSoundEffects.ts";
+import {useSoundEffects} from "../../../hooks/useSoundEffects.ts";
 
 interface ButtonProps {
   text: string;
