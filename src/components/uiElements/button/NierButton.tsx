@@ -1,9 +1,6 @@
 import "./NierButton.css";
-import useSound from 'use-sound';
 import * as React from "react";
-
-import hoverSfx from "../../../assets/audio/cursor.mp3";
-import confirmSfx from "../../../assets/audio/confirm.mp3";
+import {useSoundEffects} from "../../useSoundEffects.ts";
 
 interface ButtonProps {
   text: string;
@@ -12,14 +9,17 @@ interface ButtonProps {
 }
 
 export const NierButton = ({text, onClick, clickSound}: ButtonProps) => {
-  const [playHover] = useSound(hoverSfx);
-  const [playConfirm] = useSound(clickSound || confirmSfx);
+  const {playHover, playConfirm} = useSoundEffects(clickSound);
 
   return (
-    <button className="button" onClick={(e) => {
-      if (onClick) onClick(e);
-      playConfirm();
-    }} onMouseEnter={() => playHover()}>
+    <button
+      className="button"
+      onClick={(e) => {
+        if (onClick) onClick(e);
+        playConfirm();
+      }}
+      onMouseEnter={() => playHover()}
+    >
       {text}
     </button>
   );
