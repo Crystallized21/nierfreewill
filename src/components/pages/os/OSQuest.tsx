@@ -59,7 +59,7 @@ const OSQuest = () => {
             LeftContent={
               <>
                 {QuestList.map((item) => (
-                  <YorhaNavLink key={item.Link} to={item.Link} filter={item.type} filterType={"status"}
+                  <YorhaNavLink disabled={true} key={item.Link} to={item.Link} filter={item.type} filterType={"status"}
                                 text={item.Text}/>
                 ))}
               </>

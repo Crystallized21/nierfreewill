@@ -6,6 +6,8 @@ import TestSite from "./components/pages/TestSite.tsx";
 import OsMap from "./components/pages/os/OSMap.tsx";
 import OSQuest from "./components/pages/os/OSQuest.tsx";
 import OSLayout from "./components/pages/os/OSLayout.tsx";
+import OSItems from "./components/pages/os/OSItems.tsx";
+import OSWeapons from "./components/pages/os/OSWeapons.tsx";
 
 function App() {
   return (
@@ -18,8 +20,8 @@ function App() {
         <Route path="/os" element={<OSLayout/>}>
           <Route path="/os/map" element={<OsMap/>}/>
           <Route path="/os/quest" element={<OSQuest/>}/>
-          <Route path="/os/items" element={<TestSite/>}/>
-          <Route path="/os/weapons" element={<TestSite/>}/>
+          <Route path="/os/items" element={<OSItems/>}/>
+          <Route path="/os/weapons" element={<OSWeapons/>}/>
           <Route path="/os/skills" element={<TestSite/>}/>
           <Route path="/os/intel" element={<TestSite/>}/>
           <Route path="/os/system" element={<TestSite/>}/>
