@@ -8,7 +8,7 @@ const OsMap = () => {
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
-        title="MAP"
+        title="QUESTS"
         child={<div className={styles.ContentContainer}>
           <div className={styles.LeftPanel}>
             <div className={styles.LeftPanelChild}>
@@ -16,9 +16,9 @@ const OsMap = () => {
                 <Bar/>
               </div>
               <div className={styles.Button}>
-                <Button disabled={true} text="Quick Save"/>
-                <Button disabled={true} text="Map Mode"/>
-                <Button disabled={true} text="Map Icons"/>
+                <Button disabled={false} text="Active Quests"/>
+                <Button disabled={false} text="All Quests"/>
+                <Button disabled={false} text="Cleared Quests"/>
               </div>
             </div>
             <div className={styles.LeftPanelFooter}>
@@ -28,12 +28,12 @@ const OsMap = () => {
           <div className={styles.RightPanel}>
             <div className={styles.MapPanel}>
               <h1>
-                Classified Information
+                Classified
               </h1>
             </div>
           </div>
         </div>}
-        footer="nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal"/>
+        footer="Map Footer"/>
     </div>
   );
 };

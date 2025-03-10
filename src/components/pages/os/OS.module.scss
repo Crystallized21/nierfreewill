@@ -41,6 +41,23 @@
     background-repeat: repeat-x;
   }
 
+  .MainContent {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d1cdb7;
+    background-size: 0.3rem 0.3rem;
+    background-image: linear-gradient(to right, #ccc8b1 1px, rgba(204, 200, 177, 0) 1px), linear-gradient(to bottom, #ccc8b1 1px, rgba(204, 200, 177, 0) 1px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-family: helvetica, sans-serif;
+    letter-spacing: 0.03rem;
+    font-weight: lighter;
+    margin: 0;
+  }
+
   * {
   }
 }
