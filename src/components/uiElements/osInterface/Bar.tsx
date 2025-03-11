@@ -43,13 +43,13 @@ export const Bar = ({dark = false, ...props}: BarProps) => {
             initial={{height: 0, opacity: 0}}
             animate={{height: '100%', opacity: 1}}
             exit={{opacity: 0}}
-            transition={{duration: 0.25, ease: [.1,.6,0,1]}}
+            transition={{duration: 0.45, ease: [.1,.6,0,1]}}
           />
           <BarItem
             initial={{height: 0, opacity: 0}}
             animate={{height: '100%', opacity: 1}}
             exit={{opacity: 0}}
-            transition={{duration: 0.25, ease: [.1,.6,0,1]}}
+            transition={{duration: 0.45, ease: [.1,.6,0,1]}}
           />
         </>
       );
@@ -60,13 +60,13 @@ export const Bar = ({dark = false, ...props}: BarProps) => {
             initial={{height: 0, opacity: 0}}
             animate={{height: '100%', opacity: 1}}
             exit={{opacity: 0}}
-            transition={{duration: 0.25, ease: [.1,.6,0,1]}}
+            transition={{duration: 0.45, ease: [.1,.6,0,1]}}
           />
           <BarItem
             initial={{height: 0, opacity: 0}}
             animate={{height: '100%', opacity: 1}}
             exit={{opacity: 0}}
-            transition={{duration: 0.25, ease: [.1,.6,0,1]}}
+            transition={{duration: 0.45, ease: [.1,.6,0,1]}}
           />
         </ThemeProvider>
       );
