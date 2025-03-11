@@ -4,6 +4,7 @@ import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import OSstyles from "./OS.module.scss";
+import {motion} from "motion/react";
 
 // TODO: add pod dialogue open link entry
 // TODO: add free will stuff to the intel
@@ -50,19 +51,29 @@ const OSIntel = () => {
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
-        title="Intel"
+        title="INTEL"
         child={
           <PagesChildTemplate
-            LeftContent=
-              {IntelList.map((item) => (
-                <YorhaNavLink
-                  key={Math.random()}
-                  text={item.name}
-                  to={item.link}
-                  filter={item.type}
-                  filterType={"type"}
-                />
-              ))}
+            LeftContent={
+              <>
+                {IntelList.map((item, index) => (
+                  <motion.div
+                    key={item.link}
+                    initial={{x: -100, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
+                  >
+                    <YorhaNavLink
+                      key={item.link}
+                      text={item.name}
+                      to={item.link}
+                      filter={item.type}
+                      filterType={"type"}
+                    />
+                  </motion.div>
+                ))}
+              </>
+            }
             Outlet={<Outlet/>}
             RightContent={<StatusModule/>}
           />

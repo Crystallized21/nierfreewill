@@ -3,6 +3,7 @@ import {Bar} from "../../uiElements/osInterface/Bar.tsx";
 import {Button} from "../../uiElements/osInterface/Button.tsx";
 import styles from "./Map.module.scss";
 import OSstyles from "./OS.module.scss";
+import {motion} from "motion/react";
 
 const OsMap = () => {
   return (
@@ -17,9 +18,16 @@ const OsMap = () => {
                   <Bar/>
                 </div>
                 <div className={styles.Button}>
-                  <Button disabled={true} text="Quick Save"/>
-                  <Button disabled={true} text="Map Mode"/>
-                  <Button disabled={true} text="Map Icons"/>
+                  {["Quick Save", "Map Mode", "Map Icons"].map((text, index) => (
+                    <motion.div
+                      key={text}
+                      initial={{x: -100, opacity: 0}}
+                      animate={{x: 0, opacity: 1}}
+                      transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
+                    >
+                      <Button disabled={true} text={text}/>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
               <div className={styles.LeftPanelFooter}>

@@ -5,6 +5,7 @@ import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import OSstyles from "./OS.module.scss";
+import {motion} from "motion/react";
 
 const ItemsLists = [
   {
@@ -67,15 +68,21 @@ const OSItems = () => {
           <PagesChildTemplate
             LeftContent={
               <>
-                {ItemsLists.map((item) => (
-                  <YorhaNavLink
-                    disabled={true}
+                {ItemsLists.map((item, index) => (
+                  <motion.div
                     key={item.Link}
-                    to={item.Link}
-                    filter={item.type}
-                    filterType={"type"}
-                    text={item.Text}
-                  />
+                    initial={{x: -100, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
+                  >
+                    <YorhaNavLink
+                      disabled={true}
+                      to={item.Link}
+                      filter={item.type}
+                      filterType={"type"}
+                      text={item.Text}
+                    />
+                  </motion.div>
                 ))}
               </>
             }
