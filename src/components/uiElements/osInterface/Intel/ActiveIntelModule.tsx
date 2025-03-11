@@ -54,7 +54,9 @@ const ActiveIntelModule = () => {
                   <img src={(data.image as { unit: string }).unit} alt="text"/>
                 </div>
               </div>
-              <div className={styles.content}>{ArchivesTypeCheck()}</div>
+              <div className={styles.content}>
+                {ArchivesTypeCheck()}
+              </div>
             </div>
           );
         }
