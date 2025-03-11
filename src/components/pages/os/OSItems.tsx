@@ -76,7 +76,7 @@ const OSItems = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer="Theres is nothing left. What would you have now?"
+        footer="There is nothing left. What would you have now?"
       />
     </div>
   );

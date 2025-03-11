@@ -2,6 +2,8 @@ import styled, {ThemeProvider} from "styled-components";
 import {NavLink, useSearchParams} from "react-router-dom";
 import * as React from "react";
 import {useSoundEffects} from "../../../../hooks/useSoundEffects.ts";
+// @ts-ignore
+import ShuffleText from 'react-shuffle-text';
 
 type YorhaNavLinkProps = {
   text?: React.ReactNode;
@@ -49,7 +51,7 @@ export const YorhaCustomLink = ({
         <NavLink className={['mainClass', isActive ? "active" : "inactive"].join(' ')}
                  to={`${to}` + filter}>
           <div className='wrapper'>
-            <Icon/> {text}
+            <Icon/> <ShuffleText charIncIntervale={1} charFrames={200} charFrameTime={2} content={text}/>
           </div>
         </NavLink>
       </Button>
