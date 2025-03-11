@@ -52,9 +52,7 @@ const archivesMockData = [
             title: "Pearl Harbor Descent Records",
             id: 2,
             image: "",
-            content: [
-              "test non dropdown content"
-            ],
+            content: [],
             dropDownData: [
               {
                 title: "YoRHa: Gunner 16",
