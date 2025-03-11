@@ -7,12 +7,36 @@ const archivesMockData = [
         IntelType: "archives",
         data: [
           {
+            title: "Existential Themes",
+            id: 12,
+            image: "",
+            content: [
+              `There is no true freedom, only the illusion of choice. YoRHa androids fight endlessly, 
+              believing in their purpose, but their paths are predetermined by those who created them.`,
+              ``,
+              `Self-awareness does not grant autonomy. Androids who recognize their lack of free will experience 
+              despair rather than liberation.`
+            ],
+            descriptions: null,
+          },
+          {
+            title: "What is Free Will?",
+            id: 13,
+            image: "",
+            content: [
+              `There is no inherent meaning in existence. Androids and machines struggle to find purpose, ultimately recognizing their existence is defined by external narratives.`,
+              ``,
+              `True existence is questioned when one's identity and purpose are externally constructed. The line between genuine consciousness and scripted behavior blurs.`
+            ],
+            descriptions: null
+          },
+          {
             title: "11B's Escape Plan",
             id: 11,
             image: "",
             content: [
               `00:02:13`,
-              "Reactivation complete. A check of my body reveals various failures.Communication functions have been " +
+              "Reactivation complete. A check of my body reveals various failures. Communication functions have been " +
               "destroyed. I cannot contact my team or bunker. I leave a draft of this message here as a log.",
               ``,
               "00:10:13",
@@ -79,7 +103,8 @@ const archivesMockData = [
                 id: 5,
                 image: "",
                 content: [
-                  `There is no available information about this unit.`
+                  `There is no available information about this unit.`,
+                  `True freedom is impossible. Scanner units know more than most and yet are bound tighter by duty.`
                 ],
               }
             ]
@@ -88,7 +113,31 @@ const archivesMockData = [
       },
       {
         IntelType: "world",
-        data: [],
+        data: [
+          {
+            title: "YoRHa Existential Crisis",
+            id: 12,
+            image: "",
+            content: [
+              `YoRHa soldiers discover the truth of their meaningless struggle, yet continue to fight. 
+              The realization of predetermined roles challenges the concept of self-determination.`,
+              ``,
+              `Awareness of inevitability does not alter outcomes. The cycle continues regardless of individual will.`
+            ],
+            descriptions: null
+          },
+          {
+            title: "Illusion of Choice",
+            id: 14,
+            image: "",
+            content: [
+              `The illusion of choice gives androids a false sense of control. However, each decision is calculated by an external system, stripping away true autonomy.`,
+              ``,
+              `Freedom is an unreachable ideal, perpetuated only to maintain obedience and functionality.`
+            ],
+            descriptions: null
+          },
+        ],
         nestedData: [
           {
             title: "Standard Machines",
@@ -122,7 +171,7 @@ const archivesMockData = [
                 image: {unit},
                 content: [
                   `A YoRHa member infected by a virus.`,
-                  `Having Completely lost all sense of self, it is hostile toward all uninfected androids`
+                  `Having completely lost all sense of self, it is hostile toward all uninfected androids.`
                 ],
               }
             ]
@@ -139,8 +188,7 @@ const archivesMockData = [
             content: [
               `As members of the same model, all that was left to them was the stigma of being labeled "rampant androids." 
               Unable to endure further persecution, they began their long march to a city located a great distance away.`,
-              `Leaning upon each another.`,
-              `Burdened with an unforgivable sin.`
+              `Leaning upon each another. Burdened with an unforgivable sin.`
             ],
             descriptions: null,
           },
@@ -150,10 +198,36 @@ const archivesMockData = [
             image: "",
             content: [
               `Following his fight to death with A2, 9S's vital functions start to shut down, and his memories begin to 
-              disappear. On the verge of death, however, 9S finds his resolve.`
+              disappear. On the verge of death, however, 9S finds his resolve.`,
+              ``,
+              `Freedom of choice is an illusion. Every path 9S walked was set before he took his first step.`
             ],
             descriptions: null,
           },
+          {
+            title: "Existentialism and Machine Lifeforms",
+            id: 12,
+            image: "",
+            content: [
+              `Machines attempt to mimic humanity, hoping to achieve autonomy through imitation. Yet, the closer they 
+              come, the more they realize their actions remain scripted.`,
+              ``,
+              `Existence precedes essence, yet machines and androids both find their essence predefined by their 
+              creators, negating true existential freedom.`
+            ],
+            descriptions: null
+          },
+          {
+            title: "What it Means to Exist",
+            id: 15,
+            image: "",
+            content: [
+              `Existence is defined not merely by consciousness but by the capacity for genuine choice. The characters in NieR: Automata grapple with whether their experiences constitute real existence or merely programmed responses.`,
+              ``,
+              `To exist authentically is to acknowledge one's freedom and responsibility; yet, for androids and machines, both are inherently restricted.`
+            ],
+            descriptions: null
+          }
         ],
         nestedData: []
       }
