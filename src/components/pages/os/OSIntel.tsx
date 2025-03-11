@@ -5,6 +5,9 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import OSstyles from "./OS.module.scss";
 
+// TODO: add pod dialogue open link entry
+// TODO: add free will stuff to the intel
+
 const IntelList = [
   {
     name: "Archives",
