@@ -14,13 +14,13 @@ const Archives = () => {
 
   const mapCheck = () => {
     if (!Object.prototype.hasOwnProperty.call(data || {}, "content")) {
-      return <>data yorue looking is nt here lol</>;
+      return <>data you're looking is nt here lol</>;
     } else {
       return (
         <>
           {data?.content.map((item, index) => (
             <div key={index + 1}>
-              {typeof item === "object" && item !== null && "contentVar" in item ? item.contentVar : item}
+              {typeof item === "object" && item !== null ? JSON.stringify(item) : item}
               <br/>
             </div>
           ))}

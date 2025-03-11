@@ -1,18 +1,13 @@
 import {useParams} from "react-router-dom";
 import Archives from './Shards/Archives.tsx';
-import Fishing from './Shards/Fishing.tsx';
-import Novel from './Shards/Novel.tsx';
-import PictureBooks from './Shards/PictureBooks.tsx';
-import Tutorials from './Shards/Tutorials.tsx';
-import Unit from './Shards/Unit.tsx';
-import WeaponStories from './Shards/WeaponStories.tsx';
+import World from './Shards/World.tsx';
 import styles from './IntelModule.module.scss';
 import {getArchivesMockID, getNestedArchivesMockID} from "../../../../utils/ArchivesMockData.ts";
 import {Widget} from "../Widget.tsx";
 import {Tab} from "../Tab.tsx";
+import Nature from "./Shards/Nature.tsx";
 
 const ActiveIntelModule = () => {
-
   const params = useParams();
   const paramType = params.type;
 
@@ -27,12 +22,8 @@ const ActiveIntelModule = () => {
         archives: data ? (
           <Archives/>
         ) : "weird it seems the data is empty",
-        unitdata: <Unit/>,
-        tutorials: <Tutorials/>,
-        weaponstories: <WeaponStories/>,
-        picturebooks: <PictureBooks/>,
-        fishingencyclopedia: <Fishing/>,
-        novel: <Novel/>
+        world: <World/>,
+        nature: <Nature/>,
       };
 
       return typeMap[paramType as keyof typeof typeMap] || <>archives yet to be handled</>;

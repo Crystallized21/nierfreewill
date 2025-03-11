@@ -16,34 +16,14 @@ const IntelList = [
     type: "archives",
   },
   {
-    name: "Unit Data",
-    link: "/os/intel/unitdata/?type=",
-    type: "unitdata",
+    name: "The World",
+    link: "/os/intel/world/?type=",
+    type: "world",
   },
   {
-    name: "Tutorials",
-    link: "/os/intel/tutorials/?type=",
-    type: "tutorials",
-  },
-  {
-    name: "Weapon Stories",
-    link: "/os/intel/weaponstories/?type=",
-    type: "weaponstories",
-  },
-  {
-    name: "Picture Books",
-    link: "/os/intel/picturebooks/?type=",
-    type: "picturebooks",
-  },
-  {
-    name: "Fishing Encyclopedia",
-    link: "/os/intel/fishingencyclopedia/?type=",
-    type: "fishing"
-  },
-  {
-    name: "Novel",
-    link: "/os/intel/novel/?type=",
-    type: "novel",
+    name: "Nature of Life",
+    link: "/os/intel/nature/?type=",
+    type: "nature",
   }
 ];
 

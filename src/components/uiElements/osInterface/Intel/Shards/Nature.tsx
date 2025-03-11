@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {getArchivesMockID, getNestedArchivesMockID} from "../../../../../utils/ArchivesMockData.ts";
 
-const Unit = () => {
+const Nature = () => {
   const params = useParams();
   const paramType = params.type;
 
@@ -42,4 +42,4 @@ const Unit = () => {
   );
 };
 
-export default Unit;
+export default Nature;

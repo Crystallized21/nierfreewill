@@ -79,7 +79,7 @@ const archivesMockData = [
         ]
       },
       {
-        IntelType: "unitdata",
+        IntelType: "world",
         data: [],
         nestedData: [
           {
@@ -119,97 +119,7 @@ const archivesMockData = [
         ]
       },
       {
-        IntelType: "tutorials",
-        data: [
-          {
-            title: "Basic Controls",
-            id: 1,
-            image: "",
-            content: [
-              {
-                contentVar: "yeah"
-              }
-            ],
-            descriptions: null,
-          },
-          {
-            title: "Combat Controls",
-            id: 2,
-            image: "",
-            content: ["Combat Controls"],
-            descriptions: null,
-          }
-        ],
-        nestedData: []
-      },
-      {
-        IntelType: "weaponstories",
-        data: [],
-        nestedData: [
-          {
-            title: "Small Swords",
-            id: 1,
-            image: "",
-            content: [],
-            dropDownData: [
-              {
-                title: "Faith",
-                id: 1,
-                image: "",
-                content: ["Faith Desc"],
-              },
-              {
-                title: "Virtuous Contract",
-                id: 2,
-                image: "",
-                content: ["Virtuous Contract Desc"],
-              }
-            ]
-          }
-        ]
-      },
-      {
-        IntelType: "picturebooks",
-        data: [
-          {
-            title: "A Reason to Live",
-            id: 1,
-            image: "",
-            content: [],
-            descriptions: null,
-          },
-          {
-            title: "Treasured Items",
-            id: 2,
-            image: "",
-            content: [],
-            descriptions: null,
-          }
-        ],
-        nestedData: []
-      },
-      {
-        IntelType: "fishingencyclopedia",
-        data: [
-          {
-            title: "Killifish",
-            id: 1,
-            image: "",
-            content: ["A small freshwater fish"],
-            descriptions: null,
-          },
-          {
-            title: "Carp Machine",
-            id: 2,
-            image: "",
-            content: ["A harmless machine lifeform resembling a carp."],
-            descriptions: null,
-          }
-        ],
-        nestedData: []
-      },
-      {
-        IntelType: "novel",
+        IntelType: "nature",
         data: [
           {
             title: "Devola & Popola's Memories",
