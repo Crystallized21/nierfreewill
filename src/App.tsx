@@ -14,7 +14,7 @@ import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveI
 import OSSystem from "./components/pages/os/OSSystem.tsx";
 import PageTransition from "./components/PageTransition.tsx";
 
-// TODO: add page transitions
+// TODO: add page transitions (HAHAHAH IF THAT IS GONNA HAPPEN)
 
 function App() {
   return (
@@ -22,6 +22,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/loados" element={<OSPage/>}/>
+        {/*for whatever the fuck reason is, */}
+        {/*this page transition doesn't work,
+        and i don't have any good solutions to fix it without breaking like 90% of the website.*/}
+        {/*maybe i'll consider coming back to this in the future, but this is cooked, i would say*/}
         <Route path="/test" element={<PageTransition><TestSite/></PageTransition>}/>
 
         <Route path="/os" element={<OSLayout/>}>
