@@ -27,7 +27,7 @@ const TextContainer = styled.div`
 export const Footer = ({text, ...props}: FooterProps) => {
   return (
     <FooterParent
-      initial={{y: 50, opacity: 0}}
+      initial={{y: 75, opacity: 0}}
       animate={{y: 0, opacity: 1}}
       exit={{opacity: 0}}
       transition={{
