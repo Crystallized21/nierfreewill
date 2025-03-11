@@ -14,6 +14,7 @@ const FooterParent = styled(motion.div)`
     flex-direction: row;
     background-color: ${colors.colors[0].hex};
     align-items: center;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
 `;
 
 const TextContainer = styled.div`
@@ -26,10 +27,13 @@ const TextContainer = styled.div`
 export const Footer = ({text, ...props}: FooterProps) => {
   return (
     <FooterParent
-      initial={{y: 100, opacity: 0}}
+      initial={{y: 50, opacity: 0}}
       animate={{y: 0, opacity: 1}}
-      exit={{y: 100, opacity: 0}}
-      transition={{ease: "easeOut", duration: 0.5}}
+      exit={{opacity: 0}}
+      transition={{
+        y: {ease: [.25, .75, .2, 1], duration: 0.5},
+        opacity: {ease: "easeOut", duration: 0.5}
+      }}
       {...props}
     >
       <Bar dark={true}/>
