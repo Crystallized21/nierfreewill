@@ -1,4 +1,3 @@
-// File: `src/App.tsx`
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./components/pages/Home.tsx";
 import OSPage from "./components/pages/OSLoad.tsx";
@@ -12,6 +11,7 @@ import OSSkills from "./components/pages/os/OSSkills.tsx";
 import OSIntel from "./components/pages/os/OSIntel.tsx";
 import {IntelModule} from "./components/uiElements/osInterface/Intel/IntelModule.tsx";
 import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveIntelModule.tsx";
+import OSSystem from "./components/pages/os/OSSystem.tsx";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
               <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
             </Route>
           </Route>
-          <Route path="/os/system" element={<TestSite/>}/>
+          <Route path="/os/system" element={<OSSystem/>}/>
         </Route>
       </Routes>
     </Router>
