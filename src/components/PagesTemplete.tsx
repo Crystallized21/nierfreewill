@@ -2,7 +2,6 @@ import React from "react";
 import styles from './pages/os/PagesTemplate.module.scss';
 import {Footer} from "./uiElements/osInterface/Footer.tsx";
 import {Title} from "./uiElements/osInterface/Title.tsx";
-import { motion } from "framer-motion";
 
 type PagesTemplateProps = {
   title?: string;
@@ -14,12 +13,7 @@ type PagesTemplateProps = {
 
 const PagesTemplate = ({title, footer, child, subtitle, className}:  PagesTemplateProps) => {
   return(
-    <motion.div
-      className={styles.PagesTemplate}
-      initial={{x: -100, opacity: 0}}
-      animate={{x: 0, opacity: 1}}
-      transition={{ease: "easeOut", duration: 0.5}}
-    >
+    <div className={styles.PagesTemplate}>
       <Title title={title} subtitle={subtitle} />
       <div className={[styles.LeftPanel, className].join(' ')}>
         <div className={styles.Child}>
@@ -29,7 +23,7 @@ const PagesTemplate = ({title, footer, child, subtitle, className}:  PagesTempla
       <div>
         <Footer text={footer} />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
