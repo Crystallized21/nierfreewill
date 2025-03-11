@@ -4,7 +4,6 @@ import OSPage from "./components/pages/OSLoad.tsx";
 import TestSite from "./components/pages/TestSite.tsx";
 import OsMap from "./components/pages/os/OSMap.tsx";
 import OSQuest from "./components/pages/os/OSQuest.tsx";
-import OSLayout from "./components/pages/os/OSLayout.tsx";
 import OSItems from "./components/pages/os/OSItems.tsx";
 import OSWeapons from "./components/pages/os/OSWeapons.tsx";
 import OSSkills from "./components/pages/os/OSSkills.tsx";
@@ -13,6 +12,7 @@ import {IntelModule} from "./components/uiElements/osInterface/Intel/IntelModule
 import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveIntelModule.tsx";
 import OSSystem from "./components/pages/os/OSSystem.tsx";
 import PageTransition from "./components/PageTransition.tsx";
+import OSTransitionLayer from "./components/pages/os/OSTransitionLayer.tsx";
 
 // TODO: add page transitions (HAHAHAH IF THAT IS GONNA HAPPEN)
 
@@ -24,7 +24,7 @@ function App() {
         <Route path="/loados" element={<PageTransition><OSPage/></PageTransition>}/>
         <Route path="/test" element={<TestSite/>}/>
 
-        <Route path="/os" element={<OSLayout/>}>
+        <Route path="/os" element={<OSTransitionLayer/>}>
           <Route path="/os/map" element={<OsMap/>}/>
           <Route path="/os/quest" element={<OSQuest/>}/>
           <Route path="/os/items" element={<OSItems/>}/>

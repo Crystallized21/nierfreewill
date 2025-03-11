@@ -4,10 +4,12 @@ import React, {ReactNode} from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
+  onComplete?: () => void;
 }
 
-const PageTransition: React.FC<PageTransitionProps> = ({children}) => {
+const PageTransition: React.FC<PageTransitionProps> = ({children, onComplete}) => {
   const location = useLocation();
+  const animationDuration = 1; // duration in seconds
 
   const variants = {
     initial: {opacity: 0},
@@ -22,7 +24,8 @@ const PageTransition: React.FC<PageTransitionProps> = ({children}) => {
       animate="animate"
       exit="exit"
       variants={variants}
-      transition={{duration: 1}}
+      transition={{duration: animationDuration}}
+      onAnimationComplete={onComplete}
     >
       {children}
     </motion.div>
