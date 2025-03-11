@@ -2,7 +2,7 @@ import { NavbarModule } from "../../modules/NavBarModule.tsx";
 
 const OSLayout = () => {
   return (
-    <div >
+    <div>
       <NavbarModule />
     </div>
   );
