@@ -34,7 +34,7 @@ const OSWeapons = () => {
             RightContent={<></>}
           />
         }
-        footer="View all of the weapons in your possession."
+        footer="Your weapon is broken. What are you fighting for now?"
       />
     </div>
   );

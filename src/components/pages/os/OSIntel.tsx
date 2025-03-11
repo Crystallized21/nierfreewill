@@ -52,18 +52,19 @@ const OSIntel = () => {
           <PagesChildTemplate
             LeftContent=
               {IntelList.map((item) => (
-                <YorhaNavLink key={Math.random()} text={item.name} to={item.link} filter={item.type}
-                              filterType={"type"}/>
+                <YorhaNavLink
+                  key={Math.random()}
+                  text={item.name}
+                  to={item.link}
+                  filter={item.type}
+                  filterType={"type"}
+                />
               ))}
-            Outlet={
-              <Outlet/>
-            }
-            RightContent={
-              <StatusModule/>
-            }
+            Outlet={<Outlet/>}
+            RightContent={<StatusModule/>}
           />
         }
-        footer="View information about encountered units and foes"
+        footer="They only thing that remains is your memories, and the knowledge you have gained. This is for the truth."
       />
     </div>
   );

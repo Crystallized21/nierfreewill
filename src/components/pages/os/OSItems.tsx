@@ -50,20 +50,6 @@ const OSItems = () => {
   const [searchParams] = useSearchParams();
   const type = (searchParams.get("type"));
 
-  const Footer = () => {
-    if (type === "") {
-      return "all items";
-    } else if (!type) {
-      return "items in your inventory";
-    } else if (param.type === 'materials') {
-      return param.type;
-    } else if (param.type === 'caught fish') {
-      return param.type;
-    } else {
-      return `${param.type} items`;
-    }
-  };
-
   const TypeCheck = () => {
     if (type === "") {
       return "all";
@@ -90,7 +76,7 @@ const OSItems = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer={`View all ${Footer()}.`}
+        footer="Theres is nothing left. What would you have now?"
       />
     </div>
   );

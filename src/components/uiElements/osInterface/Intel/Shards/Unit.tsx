@@ -10,6 +10,7 @@ const Unit = () => {
 
   const data = intelListId || secondId;
 
+  // TODO: remove this console.log
   console.log(data?.content.map((items) => items));
 
   const mapCheck = () => {

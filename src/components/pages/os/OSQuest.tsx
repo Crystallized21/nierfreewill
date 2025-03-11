@@ -30,17 +30,6 @@ const OSQuest = () => {
   const [searchParams] = useSearchParams();
   const status = (searchParams.get("status"));
 
-  const ParamCheck = () => {
-    if (status === "active") {
-      return "quests currently in progress";
-    } else if (status === "cleared") {
-      return "completed quests";
-    } else if (!status) {
-      return "all quests";
-    } else if (status === "")
-      return "all accepted quests";
-  };
-
   const TypeCheck = () => {
     if (status === "") {
       return "all";
@@ -53,21 +42,25 @@ const OSQuest = () => {
       <PagesTemplate
         title={`QUESTS`}
         subtitle={SubTitle(TypeCheck(), "Quest")}
-        footer={`View ${ParamCheck()}.`}
+        footer="There is no more world anymore. Your Black Box is only keeping you alive. You were merly just pawns and were ordered to fight."
         child={
           <PagesChildTemplate
             LeftContent={
               <>
                 {QuestList.map((item) => (
-                  <YorhaNavLink disabled={true} key={item.Link} to={item.Link} filter={item.type} filterType={"status"}
-                                text={item.Text}/>
+                  <YorhaNavLink
+                    disabled={true}
+                    key={item.Link}
+                    to={item.Link}
+                    filter={item.type}
+                    filterType={"status"}
+                    text={item.Text}
+                  />
                 ))}
               </>
             }
             Outlet={<Outlet/>}
-            RightContent={
-              <StatusModule/>
-            }
+            RightContent={<StatusModule/>}
           />
         }
       />
