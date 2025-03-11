@@ -68,7 +68,14 @@ const OSItems = () => {
             LeftContent={
               <>
                 {ItemsLists.map((item) => (
-                  <YorhaNavLink disabled={true} key={item.Link} to={item.Link} filter={item.type} filterType={"type"} text={item.Text}/>
+                  <YorhaNavLink
+                    disabled={true}
+                    key={item.Link}
+                    to={item.Link}
+                    filter={item.type}
+                    filterType={"type"}
+                    text={item.Text}
+                  />
                 ))}
               </>
             }
