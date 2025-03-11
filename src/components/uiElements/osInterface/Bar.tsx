@@ -1,6 +1,6 @@
 import styled, {ThemeProvider} from 'styled-components';
 import colors from './colors.json';
-import {motion} from 'framer-motion';
+import {motion} from 'motion/react';
 
 interface BarProps {
   dark?: boolean;

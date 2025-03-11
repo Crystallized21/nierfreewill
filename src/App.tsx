@@ -13,6 +13,8 @@ import {IntelModule} from "./components/uiElements/osInterface/Intel/IntelModule
 import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveIntelModule.tsx";
 import OSSystem from "./components/pages/os/OSSystem.tsx";
 
+// TODO: add page transitions
+
 function App() {
   return (
     <Router>

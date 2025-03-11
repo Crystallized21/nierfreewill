@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Bar} from "./Bar.tsx";
 import colors from './colors.json';
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 
 type FooterProps = {
   text?: string;

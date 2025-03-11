@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion, AnimatePresence} from "motion/react";
 import {NierButton} from "../uiElements/button/NierButton";
 import {useNavigate} from "react-router-dom";
 import useSound from 'use-sound';
