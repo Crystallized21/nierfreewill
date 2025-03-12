@@ -14,28 +14,29 @@ const YorhaDialogBox = ({message, onConfirm, onCancel}: DialogBoxProps) => {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
       transition={{duration: 0.3}}
-      className="absolute inset-0 flex items-center justify-center bg-black/50"
+      className="absolute inset-0 flex items-center justify-center bg-black/50 z-50"
     >
-      <div className="bg-[#e0dcc5] text-black border border-black w-1/2 shadow-lg">
-        <div className="bg-[#57544a] text-[#e0dcc5] uppercase text-sm px-3 py-1 tracking-wide h-8 flex items-center">
-          <div className="w-4 h-4 bg-[#e0dcc5] mr-2"/>
+      <div className="bg-[#e0dcc5] w-3/6 h-1/3 shadow-lg flex flex-col">
+        <div className="bg-[#57544a] text-[#e0dcc5] uppercase px-3 py-1 tracking-wide h-10 flex items-center text-xl">
+          <div className="w-5 h-5 bg-[#e0dcc5] mr-2"/>
           System Message
         </div>
 
-        <div className="p-4 text-lg tracking-wide">
+        <div className="p-4 text-lg tracking-wide flex-grow">
           {message}
         </div>
 
-        <hr className="border-[#57544a]"/>
-
-        {/* Buttons Section */}
-        <div className="flex justify-center gap-32 p-3">
-          <YorhaNavLink className="w-1/2" text="Yes" onClick={onConfirm}/>
-          <YorhaNavLink text="No" onClick={onCancel}/>
+        <div className="mt-auto">
+          <div className="px-16 pb-2">
+            <hr className="border-[#57544a] border-t-1" />
+          </div>
+          <div className="flex justify-center gap-32 p-3">
+            <YorhaNavLink className="w-1/5" text="Yes" onClick={onConfirm}/>
+            <YorhaNavLink className="w-1/5" text="No" onClick={onCancel}/>
+          </div>
         </div>
       </div>
     </motion.div>
   );
 };
-
 export default YorhaDialogBox;
