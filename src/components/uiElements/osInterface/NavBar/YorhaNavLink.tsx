@@ -91,6 +91,7 @@ const CustomNavLink = styled(YorhaCustomLink)`
         &:hover {
             background-position: -100%;
             color: #b4af9a;
+            box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
         }
 
         &:hover ${Icon} {
