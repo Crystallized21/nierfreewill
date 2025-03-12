@@ -1,4 +1,4 @@
-export function SubTitle(ParamType: string | undefined, ParamTail: string) {
+export function SubTitle(ParamType: string | null, ParamTail: string) {
   function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
