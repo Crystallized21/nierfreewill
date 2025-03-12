@@ -13,32 +13,33 @@ import ActiveIntelModule from "./components/uiElements/osInterface/Intel/ActiveI
 import OSSystem from "./components/pages/os/OSSystem.tsx";
 import PageTransition from "./components/PageTransition.tsx";
 import OSTransitionLayer from "./components/pages/os/OSTransitionLayer.tsx";
-
-// TODO: add page transitions (HAHAHAH IF THAT IS GONNA HAPPEN)
+import {AnimatePresence} from "motion/react";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/loados" element={<PageTransition><OSPage/></PageTransition>}/>
-        <Route path="/test" element={<TestSite/>}/>
+    <AnimatePresence mode="wait">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/loados" element={<PageTransition><OSPage/></PageTransition>}/>
+          <Route path="/test" element={<TestSite/>}/>
 
-        <Route path="/os" element={<OSTransitionLayer/>}>
-          <Route path="/os/map" element={<OsMap/>}/>
-          <Route path="/os/quest" element={<OSQuest/>}/>
-          <Route path="/os/items" element={<OSItems/>}/>
-          <Route path="/os/weapons" element={<OSWeapons/>}/>
-          <Route path="/os/skills" element={<OSSkills/>}/>
-          <Route path="/os/intel" element={<OSIntel/>}>
-            <Route path={':type'} element={<IntelModule/>}>
-              <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
+          <Route path="/os" element={<OSTransitionLayer/>}>
+            <Route path="/os/map" element={<OsMap/>}/>
+            <Route path="/os/quest" element={<OSQuest/>}/>
+            <Route path="/os/items" element={<OSItems/>}/>
+            <Route path="/os/weapons" element={<OSWeapons/>}/>
+            <Route path="/os/skills" element={<OSSkills/>}/>
+            <Route path="/os/intel" element={<OSIntel/>}>
+              <Route path={':type'} element={<IntelModule/>}>
+                <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
+              </Route>
             </Route>
+            <Route path="/os/system" element={<OSSystem/>}/>
           </Route>
-          <Route path="/os/system" element={<OSSystem/>}/>
-        </Route>
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </AnimatePresence>
   );
 }
 
