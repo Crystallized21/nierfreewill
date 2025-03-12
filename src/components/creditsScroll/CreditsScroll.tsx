@@ -56,7 +56,6 @@ export default function CreditsScroll() {
     }
   }, [showErrorPopup]);
 
-  // Timer updater using a persistent start time
   useEffect(() => {
     if (errorPopupStartTime !== null) {
       const timer = setInterval(() => {
@@ -66,7 +65,6 @@ export default function CreditsScroll() {
     }
   }, [errorPopupStartTime]);
 
-  // Auto-hide the error popup and set the start time if needed.
   useEffect(() => {
     if (showErrorPopup && errorPopupStartTime === null) {
       setErrorPopupStartTime(Date.now());
