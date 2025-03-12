@@ -3,7 +3,7 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
-import {useNavigate, useSearchParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
@@ -52,11 +52,11 @@ const SettingsLists = [
 ];
 
 const OSSystem = () => {
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const type = (searchParams.get("type"));
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [confirmExit, setConfirmExit] = useState(false);
 
   const getFooterText = (itemType: string | null) => {
     if (itemType === "save") {
@@ -74,7 +74,7 @@ const OSSystem = () => {
     } else if (itemType === "title") {
       return "You cannot return.";
     } else if (itemType === "exit") {
-      return "????????";
+      return confirmExit ? "CLICK AGAIN TO CONFIRM" : "????????";
     } else if (itemType === "") {
       return "System";
     } else {
@@ -82,8 +82,21 @@ const OSSystem = () => {
     }
   };
 
+  const displayFooter = confirmExit
+    ? "SYSTEM: ARE YOU SURE YOU WANT TO END IT HERE?"
+    : (hoveredItem ? getFooterText(hoveredItem) : "System Menu");
+
+  const invertedStyle = confirmExit ? {
+    filter: 'invert(100%)',
+    transition: 'filter 0.3s ease-in-out'
+  } : {};
+
   return (
-    <div className={OSstyles.MainContent}>
+    <div
+      className={OSstyles.MainContent}
+      key={refreshKey}
+      style={invertedStyle}
+    >
       <PagesTemplate
         title={`SYSTEM`}
         child={
@@ -105,7 +118,14 @@ const OSSystem = () => {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={(event) => {
                         if (item.type === "exit") {
-                          navigate(item.Link);
+                          event?.preventDefault();
+
+                          if (!confirmExit) {
+                            setConfirmExit(true);
+                            setRefreshKey(prev => prev + 1);
+                          } else {
+                            navigate("/os/system/exit");
+                          }
                         } else {
                           event?.preventDefault();
                         }
@@ -118,7 +138,7 @@ const OSSystem = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer={getFooterText(hoveredItem || type)}
+        footer={displayFooter}
       />
     </div>
   );
