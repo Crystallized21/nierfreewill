@@ -4,10 +4,26 @@ import {Button} from "../../uiElements/osInterface/Button.tsx";
 import styles from "./Map.module.scss";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
+import {useSoundEffects} from "../../../hooks/useSoundEffects.ts";
+import {useState} from "react";
 
 const OsMap = () => {
+  const {playHover, playError} = useSoundEffects();
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [footerText, setFooterText] = useState("nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal`");
+
+  const handleHover = () => {
+    playHover();
+  };
+
+  const handleClick = () => {
+    playError();
+    setRefreshKey(prev => prev + 1);
+    setFooterText("SYSTEM: LOCATION SET. ERROR—NAVIGATION LOOP DETECTED.");
+  };
+
   return (
-    <div className={OSstyles.MainContent}>
+    <div className={OSstyles.MainContent} key={refreshKey}>
       <PagesTemplate
         title="MAP"
         child={
@@ -24,14 +40,18 @@ const OsMap = () => {
                       initial={{x: -100, opacity: 0}}
                       animate={{x: 0, opacity: 1}}
                       transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
+                      onMouseEnter={handleHover}
                     >
-                      <Button disabled={true} text={text}/>
+                      <Button
+                        text={text}
+                        onClick={handleClick}
+                      />
                     </motion.div>
                   ))}
                 </div>
               </div>
               <div className={styles.LeftPanelFooter}>
-                {/* footer panel  */}
+                {/* footer panel */}
               </div>
             </div>
             <div className={styles.RightPanel}>
@@ -42,7 +62,7 @@ const OsMap = () => {
               </div>
             </div>
           </div>}
-        footer="nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal`"/>
+        footer={footerText}/>
     </div>
   );
 };

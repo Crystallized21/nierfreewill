@@ -7,6 +7,8 @@ type ButtonProps = {
   text?: string;
   disabled?: boolean;
   variant?: 'checkbox' | 'button';
+  onMouseEnter?: () => void;
+  onClick?: () => void;
 }
 
 const Icon = styled.div`
