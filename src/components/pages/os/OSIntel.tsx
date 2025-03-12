@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import {Outlet} from "react-router-dom";
 import PagesTemplate from "../../PagesTemplete.tsx";
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
@@ -5,6 +6,7 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
+import pod from "../../../assets/audio/pod.ogg";
 
 // TODO: add pod dialogue open link entry
 // TODO: add free will stuff to the intel
@@ -27,7 +29,23 @@ const IntelList = [
   }
 ];
 
+let hasPlayedSound: boolean = false;
+
 const OSIntel = () => {
+  useEffect(() => {
+    if (!hasPlayedSound) {
+      const audio = new Audio(pod);
+      audio.play()
+        .then(() => {
+          console.log("Audio played successfully");
+        })
+        .catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      hasPlayedSound = true;
+    }
+  }, []);
+
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
@@ -58,7 +76,7 @@ const OSIntel = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer="The only thing that remains is your memories, and the knowledge you have gained."
+        footer="The only thing that remains is your memories, and the knowledge you have gained. Love your own heart."
       />
     </div>
   );
