@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./components/pages/Home.tsx";
 import OSPage from "./components/pages/OSLoad.tsx";
 import TestSite from "./components/pages/TestSite.tsx";
-import OsMap from "./components/pages/os/OSMap.tsx";
+import OSMap from "./components/pages/os/OSMap.tsx";
 import OSQuest from "./components/pages/os/OSQuest.tsx";
 import OSItems from "./components/pages/os/OSItems.tsx";
 import OSWeapons from "./components/pages/os/OSWeapons.tsx";
@@ -26,7 +26,7 @@ function App() {
           <Route path="/test" element={<TestSite/>}/>
 
           <Route path="/os" element={<OSTransitionLayer/>}>
-            <Route path="/os/map" element={<OsMap/>}/>
+            <Route path="/os/map" element={<OSMap/>}/>
             <Route path="/os/quest" element={<OSQuest/>}/>
             <Route path="/os/items" element={<OSItems/>}/>
             <Route path="/os/weapons" element={<OSWeapons/>}/>

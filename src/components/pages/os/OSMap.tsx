@@ -7,10 +7,10 @@ import {motion} from "motion/react";
 import {useSoundEffects} from "../../../hooks/useSoundEffects.ts";
 import {useState} from "react";
 
-const OsMap = () => {
+const OSMap = () => {
   const {playHover, playError} = useSoundEffects();
   const [refreshKey, setRefreshKey] = useState(0);
-  const [footerText, setFooterText] = useState("nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal`");
+  const [footerText, setFooterText] = useState("nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal");
 
   const handleHover = () => {
     playHover();
@@ -67,4 +67,4 @@ const OsMap = () => {
   );
 };
 
-export default OsMap;
+export default OSMap;
