@@ -3,30 +3,111 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
+import {useSearchParams} from "react-router-dom";
+import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
+import {useState} from "react";
+
+const SettingsLists = [
+  {
+    Link: "",
+    Text: "Save",
+    type: "save",
+  },
+  {
+    Link: "",
+    Text: "Load",
+    type: "load",
+  },
+  {
+    Link: "",
+    Text: "Settings",
+    type: "settings",
+  },
+  {
+    Link: "",
+    Text: "Controls",
+    type: "controls",
+  },
+  {
+    Link: "",
+    Text: "Network",
+    type: "network",
+  },
+  {
+    Link: "",
+    Text: "Play Records",
+    type: "playrecords",
+  },
+  {
+    Link: "",
+    Text: "Return to Title Screen",
+    type: "title",
+  },
+  {
+    Link: "",
+    Text: "Exit Game?",
+    type: "exit",
+  }
+];
 
 const OSSystem = () => {
+  const [searchParams] = useSearchParams();
+  const type = (searchParams.get("type"));
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const getFooterText = (itemType: string | null) => {
+    if (itemType === "save") {
+      return "You can't save now.";
+    } else if (itemType === "load") {
+      return "You can't load now.";
+    } else if (itemType === "settings") {
+      return "Unauthorized access to change internal OS settings.";
+    } else if (itemType === "controls") {
+      return "Unauthorized access to change combat controls.";
+    } else if (itemType === "network") {
+      return "Network connection unavailable.";
+    } else if (itemType === "playrecords") {
+      return "Unauthorized access to view records.";
+    } else if (itemType === "title") {
+      return "You cannot return.";
+    } else if (itemType === "exit") {
+      return "????????";
+    } else if (itemType === "") {
+      return "System";
+    } else {
+      return "System Menu";
+    }
+  };
+
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
         title={`SYSTEM`}
-        footer="Are you sure you want to end it all? Nothing will be left. No one will be left."
         child={
           <PagesChildTemplate
             LeftContent={
               <>
-                <motion.div
-                  initial={{x: -100, opacity: 0}}
-                  animate={{x: 0, opacity: 1}}
-                  transition={{duration: 0.4, delay: 0.1, ease: [.25, .75, .2, 1]}}
-                >
-                  <YorhaNavLink
-                    text="Delete OS"
-                  />
-                </motion.div>
+                {SettingsLists.map((item, index) => (
+                  <motion.div
+                    key={item.type}
+                    initial={{x: -100, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
+                  >
+                    <YorhaNavLink
+                      filter={item.type}
+                      text={item.Text}
+                      onMouseEnter={() => setHoveredItem(item.type)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                    />
+                  </motion.div>
+                ))}
               </>
             }
+            RightContent={<StatusModule/>}
           />
         }
+        footer={getFooterText(hoveredItem || type)}
       />
     </div>
   );

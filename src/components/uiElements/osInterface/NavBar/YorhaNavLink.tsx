@@ -14,6 +14,8 @@ type YorhaNavLinkProps = {
   clickSound?: string;
   errorSound?: string;
   onClick?: (event?: React.MouseEvent) => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const Icon = styled.div`
@@ -56,7 +58,13 @@ export const YorhaCustomLink = ({
           // used for preventing navigation at the NavLink level
           event?.stopPropagation();
         }}
-        onMouseEnter={() => playHover()}
+        onMouseEnter={() => {
+          playHover();
+          props.onMouseEnter?.();
+        }}
+        onMouseLeave={() => {
+          props.onMouseLeave?.();
+        }}
       >
         <NavLink
           className={['mainClass', isActive ? "active" : "inactive"].join(' ')}
@@ -76,6 +84,7 @@ export const YorhaCustomLink = ({
     </div>
   );
 };
+
 const Button = styled.button`
     padding: 0;
     width: 100%;
