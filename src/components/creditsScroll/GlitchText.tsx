@@ -24,7 +24,7 @@ export default function GlitchText({text}: GlitchTextProps) {
       const top = Math.floor(Math.random() * 45);
       const bottom = Math.floor(Math.random() * 45);
       setClipPath(`inset(${top}% 0% ${bottom}% 0%)`);
-    }, 15);
+    }, 20);
 
     return () => clearInterval(interval);
   }, []);
