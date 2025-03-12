@@ -31,5 +31,5 @@ export const LoadingDots = (): JSX.Element => {
     return () => clearTimeout(timer);
   }, [dots]);
 
-  return <span style={{opacity:0.8}}>{dots}</span>;
+  return <span style={{opacity: 0.8}}>{dots}</span>;
 };

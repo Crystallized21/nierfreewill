@@ -1,9 +1,9 @@
-import { NavbarModule } from "../../modules/NavBarModule.tsx";
+import {NavbarModule} from "../../modules/NavBarModule.tsx";
 
 const OSLayout = () => {
   return (
     <div>
-      <NavbarModule />
+      <NavbarModule/>
     </div>
   );
 };

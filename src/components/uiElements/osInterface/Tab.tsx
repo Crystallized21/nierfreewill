@@ -63,8 +63,8 @@ const Content = styled.div`
 }
 `;
 
-export const Tab = ({content, className}:TabProps) =>{
-  return(
+export const Tab = ({content, className}: TabProps) => {
+  return (
     <StyledTab>
       <SeparatorStyle><Separator/> <Dot/></SeparatorStyle>
       <Content className={className}>

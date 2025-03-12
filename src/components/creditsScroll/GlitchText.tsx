@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 
 interface GlitchTextProps {
   text: string;
@@ -10,7 +10,7 @@ export default function GlitchText({text}: GlitchTextProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const offset = Math.floor(Math.random() * 360) - 120; // Large range for left/right movement
+      const offset = Math.floor(Math.random() * 360) - 120;
       setGlitchShadow(`
             ${offset}px 0px 0px red,
             ${-offset}px 0px 0px blue,

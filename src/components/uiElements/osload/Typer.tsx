@@ -1,6 +1,6 @@
 import {JSX, useEffect, useState} from "react";
 import styled from "styled-components";
-import { StyledGlitchText } from "./glitchingTextStyle.ts";
+import {StyledGlitchText} from "./glitchingTextStyle.ts";
 
 /**
  * Props for the Typer component.

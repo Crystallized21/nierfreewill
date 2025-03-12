@@ -1,5 +1,5 @@
 import {JSX, useEffect, useState} from "react";
-import { Typer } from "./Typer";
+import {Typer} from "./Typer";
 import messages from "./loadingMessages.ts";
 
 /**
@@ -20,7 +20,7 @@ type LoadingLogsProps = {
  * @param {LoadingLogsProps} props - The props for the component.
  * @returns {JSX.Element} - The JSX element that represents the LoadingLogs component.
  */
-export const LoadingLogs = ({ callBack }: LoadingLogsProps): JSX.Element => {
+export const LoadingLogs = ({callBack}: LoadingLogsProps): JSX.Element => {
   const [waitingListRender, setWaitingListRender] = useState([messages[0]]);
 
   /**

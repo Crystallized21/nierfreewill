@@ -9,5 +9,5 @@ export const useSoundEffects = (clickSound?: string, errorSound?: string) => {
   const [playConfirm] = useSound(clickSound || confirmSfx);
   const [playError] = useSound(errorSound || errorSfx);
 
-  return { playHover, playConfirm, playError};
+  return {playHover, playConfirm, playError};
 };

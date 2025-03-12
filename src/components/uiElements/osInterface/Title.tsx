@@ -35,7 +35,7 @@ const TitleParent = styled.div`
 `;
 
 export const Title = ({title, subtitle, ...props}: TitleProps) => {
-  return(
+  return (
     <TitleParent {...props}>
       <h1><ShuffleText charIncIntervale={10} charFrames={20} charFrameTime={10} content={title}/></h1>
       <h3><ShuffleText charIncIntervale={10} charFrames={20} charFrameTime={10} content={subtitle}/></h3>

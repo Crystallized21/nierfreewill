@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 import {JSX} from "react";
 
 // Duration of the spinning animation in seconds
@@ -107,9 +107,9 @@ const Close = styled.div`
  */
 export const SpinLoadingIcon = (): JSX.Element => (
   <SpinContainer>
-    <Inner />
-    <Spin />
-    <Outter />
-    <Close />
+    <Inner/>
+    <Spin/>
+    <Outter/>
+    <Close/>
   </SpinContainer>
 );

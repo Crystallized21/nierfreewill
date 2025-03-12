@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import yorhaLogo from "../../../assets/yorha-opacity-logo.png";
-import { useNavigate } from "react-router-dom";
-import { StyledGlitchText } from "./glitchingTextStyle.ts";
+import {useNavigate} from "react-router-dom";
+import {StyledGlitchText} from "./glitchingTextStyle.ts";
 import {LoadingDots} from "./LoadingDots.tsx";
 import {SpinLoadingIcon} from "./SpinLoadingIcon.tsx";
 import {LoadingLogs} from "./LoadingLogs.tsx";
@@ -61,16 +61,16 @@ export const Loading = () => {
       <Header>
         <Container style={{}}>
           <GlitchingH1>LOADING </GlitchingH1>
-          <GlitchingP style={{ marginLeft: "4px" }}>
+          <GlitchingP style={{marginLeft: "4px"}}>
             {" "}
             - CHECKING SYSTEM
           </GlitchingP>
-          <LoadingDots />
+          <LoadingDots/>
         </Container>
-        <SpinLoadingIcon />
+        <SpinLoadingIcon/>
       </Header>
       <Section>
-        <LoadingLogs callBack={loadingCompleted} />
+        <LoadingLogs callBack={loadingCompleted}/>
       </Section>
     </Main>
   );

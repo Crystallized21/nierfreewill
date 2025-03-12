@@ -3,7 +3,7 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
-import {useSearchParams, useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";

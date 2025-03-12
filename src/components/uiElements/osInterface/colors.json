@@ -1,28 +1,28 @@
 {
-  "colors":[
+  "colors": [
     {
-      "name":"light-yellow",
-      "hex":"#dad4bb"
+      "name": "light-yellow",
+      "hex": "#dad4bb"
     },
     {
-      "name":"light-brown",
-      "hex":"#b4af9a"
+      "name": "light-brown",
+      "hex": "#b4af9a"
     },
     {
-      "name":"dark-brown",
-      "hex":"#57544a"
+      "name": "dark-brown",
+      "hex": "#57544a"
     },
     {
-      "name":"dark-brown-strip",
-      "hex":"#4e4b42"
+      "name": "dark-brown-strip",
+      "hex": "#4e4b42"
     },
     {
-      "name":"red-alert",
-      "hex":"#cd664d"
+      "name": "red-alert",
+      "hex": "#cd664d"
     },
     {
-      "name":"dark-text",
-      "hex":"#3F3D36"
+      "name": "dark-text",
+      "hex": "#3F3D36"
     }
   ]
 }
