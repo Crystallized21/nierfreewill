@@ -1,20 +1,23 @@
 import {useState} from "react";
 import OSLayout from "./OSLayout.tsx";
 import PageTransition from "../../PageTransition.tsx";
+import {SystemProvider} from "../../SystemContext.tsx";
 
 const OSTransitionLayer = () => {
   const [hasTransitioned, setHasTransitioned] = useState(false);
 
   return (
-    <div>
-      {!hasTransitioned ? (
-        <PageTransition onComplete={() => setHasTransitioned(true)}>
+    <SystemProvider>
+      <div>
+        {!hasTransitioned ? (
+          <PageTransition onComplete={() => setHasTransitioned(true)}>
+            <OSLayout/>
+          </PageTransition>
+        ) : (
           <OSLayout/>
-        </PageTransition>
-      ) : (
-        <OSLayout/>
-      )}
-    </div>
+        )}
+      </div>
+    </SystemProvider>
   );
 };
 

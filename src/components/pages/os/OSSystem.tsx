@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
+import {useSystemContext} from "../../SystemContext.tsx";
 
 const SettingsLists = [
   {
@@ -53,10 +54,10 @@ const SettingsLists = [
 
 const OSSystem = () => {
   const navigate = useNavigate();
+  const {confirmExit, setConfirmExit} = useSystemContext();
 
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [confirmExit, setConfirmExit] = useState(false);
 
   const getFooterText = (itemType: string | null) => {
     if (itemType === "save") {
@@ -86,16 +87,10 @@ const OSSystem = () => {
     ? "SYSTEM: ARE YOU SURE YOU WANT TO END IT HERE?"
     : (hoveredItem ? getFooterText(hoveredItem) : "System Menu");
 
-  const invertedStyle = confirmExit ? {
-    filter: 'invert(100%)',
-    transition: 'filter 0.3s ease-in-out'
-  } : {};
-
   return (
     <div
       className={OSstyles.MainContent}
       key={refreshKey}
-      style={invertedStyle}
     >
       <PagesTemplate
         title={`SYSTEM`}
