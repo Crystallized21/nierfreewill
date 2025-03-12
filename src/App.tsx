@@ -14,6 +14,7 @@ import OSSystem from "./components/pages/os/OSSystem.tsx";
 import PageTransition from "./components/PageTransition.tsx";
 import OSTransitionLayer from "./components/pages/os/OSTransitionLayer.tsx";
 import {AnimatePresence} from "motion/react";
+import EndofYorha from "./components/pages/EndofYorha.tsx";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             </Route>
             <Route path="/os/system" element={<OSSystem/>}/>
           </Route>
+          <Route path="/os/system/exit" element={<EndofYorha/>}/>
         </Routes>
       </Router>
     </AnimatePresence>
