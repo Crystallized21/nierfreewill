@@ -8,8 +8,6 @@ import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
 import pod from "../../../assets/audio/pod.ogg";
 
-// TODO: add pod dialogue open link entry
-
 const IntelList = [
   {
     name: "Archives",

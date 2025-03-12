@@ -5,9 +5,6 @@ import {StyledGlitchText} from "./glitchingTextStyle.ts";
 import {LoadingDots} from "./LoadingDots.tsx";
 import {SpinLoadingIcon} from "./SpinLoadingIcon.tsx";
 import {LoadingLogs} from "./LoadingLogs.tsx";
-/*
-TODO: Add route changing animation
-*/
 
 const Main = styled.main`
     position: fixed;

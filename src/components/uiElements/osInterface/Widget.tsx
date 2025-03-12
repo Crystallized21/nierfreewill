@@ -2,7 +2,7 @@ import React from "react";
 import styled, {ThemeProvider} from 'styled-components';
 import colors from './colors.json';
 
-//TODO might want to refactor the parent element style/size to fix being pushed by font size
+// TODO might want to refactor the parent element style/size to fix being pushed by font size
 
 interface WidgetProps {
   dark?: boolean;
