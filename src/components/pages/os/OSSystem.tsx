@@ -3,7 +3,7 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import PagesChildTemplate from "../../PagesChildTemplate.tsx";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
-import {useSearchParams} from "react-router-dom";
+import {useSearchParams, useNavigate} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
@@ -45,7 +45,7 @@ const SettingsLists = [
     type: "title",
   },
   {
-    Link: "",
+    Link: "/os/system/exit",
     Text: "Exit Game?",
     type: "exit",
   }
@@ -53,6 +53,8 @@ const SettingsLists = [
 
 const OSSystem = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   const type = (searchParams.get("type"));
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
@@ -103,7 +105,7 @@ const OSSystem = () => {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={(event) => {
                         if (item.type === "exit") {
-                          alert("You can't exit the game.");
+                          navigate(item.Link);
                         } else {
                           event?.preventDefault();
                         }
