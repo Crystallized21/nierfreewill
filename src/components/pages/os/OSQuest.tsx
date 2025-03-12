@@ -43,7 +43,6 @@ const OSQuest = () => {
       <PagesTemplate
         title={`QUESTS`}
         subtitle={SubTitle(TypeCheck(), "Quest")}
-        footer="There is no more world anymore. Your Black Box is only keeping you alive. You were merly just pawns and were ordered to fight."
         child={
           <PagesChildTemplate
             LeftContent={
@@ -71,6 +70,7 @@ const OSQuest = () => {
             RightContent={<StatusModule/>}
           />
         }
+        footer="There is no more world anymore. Your Black Box is only keeping you alive."
       />
     </div>
   );

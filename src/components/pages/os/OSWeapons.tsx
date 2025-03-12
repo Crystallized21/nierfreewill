@@ -43,7 +43,7 @@ const OSWeapons = () => {
             RightContent={<></>}
           />
         }
-        footer="Your weapon is broken. What are you fighting for now?"
+        footer="FCS System Unavailable"
       />
     </div>
   );

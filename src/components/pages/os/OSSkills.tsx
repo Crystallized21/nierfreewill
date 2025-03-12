@@ -6,7 +6,7 @@ const OSSkills = () => {
     <div className={OSstyles.MainContent}>
       <PagesTemplate
         title="CLASSIFIED"
-        footer="You should not be here. Androids were meant to save humanity, not destroy it. You are the reason why we can't have nice things."
+        footer="You should not be here. Androids were meant to save humanity, not destroy it."
       />
     </div>
   );

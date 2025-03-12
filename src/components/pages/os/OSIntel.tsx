@@ -58,7 +58,7 @@ const OSIntel = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer="They only thing that remains is your memories, and the knowledge you have gained. This is for the truth."
+        footer="The only thing that remains is your memories, and the knowledge you have gained."
       />
     </div>
   );
