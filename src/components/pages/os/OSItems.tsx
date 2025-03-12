@@ -1,11 +1,13 @@
-import {Outlet, useParams, useSearchParams} from "react-router-dom";
-import PagesTemplate from "../../PagesTemplete.tsx";
-import {SubTitle} from "../../../utils/ParamAsSubtitle.ts";
-import PagesChildTemplate from "../../PagesChildTemplate.tsx";
-import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx";
-import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
+import {Outlet, useSearchParams} from "react-router-dom";
+import PagesTemplate from "../../PagesTemplete";
+import PagesChildTemplate from "../../PagesChildTemplate";
+import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink";
+import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
+import {useEffect, useState} from "react";
+import ErrorPopup from "../../uiElements/error/ErrorPopup";
+import error from "../../../assets/audio/error.mp3";
 
 const ItemsLists = [
   {
@@ -46,16 +48,57 @@ const ItemsLists = [
 ];
 
 const OSItems = () => {
-
-  const param = useParams();
   const [searchParams] = useSearchParams();
   const type = (searchParams.get("type"));
 
-  const TypeCheck = () => {
+  const [errorPopupTime, setErrorPopupTime] = useState(0);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
+  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+  const [errorPopupStartTime, setErrorPopupStartTime] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (showErrorPopup) {
+      const updateMousePosition = (event: MouseEvent) => {
+        setMousePosition({x: event.clientX, y: event.clientY});
+      };
+      window.addEventListener("mousemove", updateMousePosition);
+      return () => window.removeEventListener("mousemove", updateMousePosition);
+    }
+  }, [showErrorPopup]);
+
+  useEffect(() => {
+    if (errorPopupStartTime !== null) {
+      const timer = setInterval(() => {
+        setErrorPopupTime(Number(((Date.now() - errorPopupStartTime) / 1000).toFixed(2)));
+      }, 1);
+      return () => clearInterval(timer);
+    }
+  }, [errorPopupStartTime]);
+
+  useEffect(() => {
+    if (showErrorPopup && errorPopupStartTime === null) {
+      setErrorPopupStartTime(Date.now());
+    }
+    if (showErrorPopup) {
+      const timeout = setTimeout(() => {
+        setShowErrorPopup(false);
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showErrorPopup, errorPopupStartTime]);
+
+
+  const Footer = () => {
     if (type === "") {
-      return "all";
+      return "all items";
+    } else if (!type) {
+      return "items in your inventory";
+    } else if (type === 'materials') {
+      return type;
+    } else if (type === 'fish') {
+      return "caught fish";
     } else {
-      return param.type;
+      return `${type} items`;
     }
   };
 
@@ -63,7 +106,6 @@ const OSItems = () => {
     <div className={OSstyles.MainContent}>
       <PagesTemplate
         title={`ITEMS`}
-        subtitle={SubTitle(TypeCheck(), "Items")}
         child={
           <PagesChildTemplate
             LeftContent={
@@ -76,11 +118,21 @@ const OSItems = () => {
                     transition={{duration: 0.4, delay: 0.1 + index * 0.05, ease: [.25, .75, .2, 1]}}
                   >
                     <YorhaNavLink
-                      disabled={true}
                       to={item.Link}
-                      filter={item.type}
-                      filterType={"type"}
                       text={item.Text}
+                      filterType="type"
+                      filter={item.type}
+                      errorSound={error}
+                      onClick={(event) => {
+                        event?.preventDefault();
+                        if (event) {
+                          setMousePosition({
+                            x: event.clientX,
+                            y: event.clientY
+                          });
+                        }
+                        setShowErrorPopup(true);
+                      }}
                     />
                   </motion.div>
                 ))}
@@ -90,8 +142,16 @@ const OSItems = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer="There is nothing left. What would you have now?"
+        footer={`View all ${Footer()}.`}
       />
+      {showErrorPopup && (
+        <ErrorPopup
+          text="You do not have the authority to operate that command."
+          x={mousePosition.x}
+          y={mousePosition.y}
+          seconds={errorPopupTime}
+        />
+      )}
     </div>
   );
 };

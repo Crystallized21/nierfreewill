@@ -8,23 +8,21 @@ interface ErrorPopupProps {
 export default function ErrorPopup({text, x, y, seconds}: ErrorPopupProps) {
   return (
     <div
-      className="absolute bg-red-400 text-white font-sans text shadow-lg border border-red-600"
+      className="fixed bg-red-400 text-white font-sans text shadow-lg border border-red-600 z-999"
       style={{
         top: `${y}px`,
         left: `${x}px`,
-        transform: "translate(0%, 635%)", // Moves the popup so bottom-center is at the cursor
+        transform: "translate(-0%, -100%)", // center the popup
         color: "#dcd8c0",
         width: "auto",
-        maxWidth: "calc(100vw - 20px)", // Ensure the popup doesn't exceed the viewport width
+        maxWidth: "calc(100vw - 20px)", // doesn't exceed the viewport width
       }}
     >
-      {/* Header */}
       <div className="flex justify-between items-center px-3 bg-red-500 shadow-lg">
         <span className="tracking-wider">ERROR</span>
         <span className="text-sm">{seconds}</span>
       </div>
 
-      {/* Body with dotted background */}
       <div
         className="p-2 text-center relative"
         style={{

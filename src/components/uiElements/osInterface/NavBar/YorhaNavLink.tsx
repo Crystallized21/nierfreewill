@@ -12,6 +12,8 @@ type YorhaNavLinkProps = {
   filterType?: string;
   variant?: "button" | "nav" | "transparent" | "neutral";
   clickSound?: string;
+  errorSound?: string;
+  onClick?: (event?: React.MouseEvent) => void;
 }
 
 const Icon = styled.div`
@@ -32,22 +34,40 @@ export const YorhaCustomLink = ({
   to,
   disabled = false,
   clickSound,
+  errorSound,
   ...props
 }: YorhaNavLinkProps) => {
   const [params] = useSearchParams();
   const isActive = filterType ? params.get(filterType) === filter : false;
-  const {playHover, playConfirm} = useSoundEffects(clickSound);
+  const {playHover, playConfirm, playError} = useSoundEffects(clickSound);
 
   return (
     <div className={className}>
       <Button
         disabled={disabled}
         {...props}
-        onClick={() => playConfirm()}
+        onClick={(event) => {
+          if (errorSound && props.onClick) {
+            playError();
+          } else {
+            playConfirm();
+          }
+          props.onClick?.(event);
+          // used for preventing navigation at the NavLink level
+          event?.stopPropagation();
+        }}
         onMouseEnter={() => playHover()}
       >
-        <NavLink className={['mainClass', isActive ? "active" : "inactive"].join(' ')}
-                 to={`${to}` + filter}>
+        <NavLink
+          className={['mainClass', isActive ? "active" : "inactive"].join(' ')}
+          to={`${to}` + filter}
+          onClick={(e) => {
+            // actually prevent navigation
+            if (props.onClick) {
+              e.preventDefault();
+            }
+          }}
+        >
           <div className='wrapper'>
             <Icon/> {text}
           </div>
@@ -56,7 +76,6 @@ export const YorhaCustomLink = ({
     </div>
   );
 };
-
 const Button = styled.button`
     padding: 0;
     width: 100%;
@@ -214,6 +233,7 @@ export const YorhaNavLink = ({
   variant = "nav",
   text,
   clickSound,
+  errorSound,
   ...props
 }: YorhaNavLinkProps) => {
 
@@ -221,27 +241,27 @@ export const YorhaNavLink = ({
     if (variant === "nav") {
       return (
         <CustomNavLink to={to} filter={filter} text={text} filterType={filterType} variant={variant}
-                       clickSound={clickSound} {...props}/>
+                       clickSound={clickSound} errorSound={errorSound} {...props}/>
       );
     } else if (variant === "button") {
       return (
         <ThemeProvider theme={theme}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
-                         clickSound={clickSound} {...props}/>
+                         clickSound={clickSound} errorSound={errorSound} {...props}/>
         </ThemeProvider>
       );
     } else if (variant === "transparent") {
       return (
         <ThemeProvider theme={transparent}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
-                         clickSound={clickSound} {...props}/>
+                         clickSound={clickSound} errorSound={errorSound} {...props}/>
         </ThemeProvider>
       );
     } else if (variant === "neutral") {
       return (
         <ThemeProvider theme={neutral}>
           <CustomNavLink to={to} filter={filter} filterType={filterType} variant={variant} text={text}
-                         clickSound={clickSound} {...props}/>
+                         clickSound={clickSound} errorSound={errorSound} {...props}/>
         </ThemeProvider>
       );
     }
