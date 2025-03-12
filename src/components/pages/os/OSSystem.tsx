@@ -7,9 +7,8 @@ import {useNavigate} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
+import YorhaDialogBox from "../../uiElements/osInterface/DialogBox/YorhaDialogBox.tsx";
 import {useSystemContext} from "../../SystemContext.tsx";
-
-// TODO: Add popup to confirm exit
 
 const SettingsLists = [
   {
@@ -59,7 +58,6 @@ const OSSystem = () => {
   const {confirmExit, setConfirmExit} = useSystemContext();
 
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [refreshKey, setRefreshKey] = useState(0);
 
   const getFooterText = (itemType: string | null) => {
     if (itemType === "save") {
@@ -77,7 +75,7 @@ const OSSystem = () => {
     } else if (itemType === "title") {
       return "You cannot return.";
     } else if (itemType === "exit") {
-      return confirmExit ? "CLICK AGAIN TO CONFIRM" : "????????";
+      return "????????";
     } else if (itemType === "") {
       return "System";
     } else {
@@ -85,15 +83,17 @@ const OSSystem = () => {
     }
   };
 
-  const displayFooter = confirmExit
-    ? "SYSTEM: ARE YOU SURE YOU WANT TO END IT HERE?"
-    : (hoveredItem ? getFooterText(hoveredItem) : "System Menu");
+  const handleExitConfirm = () => {
+    navigate("/os/system/exit");
+    setConfirmExit(false);
+  };
+
+  const handleExitCancel = () => {
+    setConfirmExit(false);
+  };
 
   return (
-    <div
-      className={OSstyles.MainContent}
-      key={refreshKey}
-    >
+    <div className={OSstyles.MainContent}>
       <PagesTemplate
         title={`SYSTEM`}
         child={
@@ -116,13 +116,7 @@ const OSSystem = () => {
                       onClick={(event) => {
                         if (item.type === "exit") {
                           event?.preventDefault();
-
-                          if (!confirmExit) {
-                            setConfirmExit(true);
-                            setRefreshKey(prev => prev + 1);
-                          } else {
-                            navigate("/os/system/exit");
-                          }
+                          setConfirmExit(true);
                         } else {
                           event?.preventDefault();
                         }
@@ -135,8 +129,16 @@ const OSSystem = () => {
             RightContent={<StatusModule/>}
           />
         }
-        footer={displayFooter}
+        footer={hoveredItem ? getFooterText(hoveredItem) : "System Menu"}
       />
+
+      {confirmExit && (
+        <YorhaDialogBox
+          message="SYSTEM: ARE YOU SURE YOU WANT TO END IT HERE?"
+          onConfirm={handleExitConfirm}
+          onCancel={handleExitCancel}
+        />
+      )}
     </div>
   );
 };
