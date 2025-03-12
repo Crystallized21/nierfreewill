@@ -9,7 +9,6 @@ import {motion} from "motion/react";
 import pod from "../../../assets/audio/pod.ogg";
 
 // TODO: add pod dialogue open link entry
-// TODO: add free will stuff to the intel
 
 const IntelList = [
   {

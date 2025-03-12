@@ -10,19 +10,6 @@ import startup from "../../assets/audio/startup.mp3";
 import music from "../../assets/audio/music1.mp3";
 import error from "../../assets/audio/error.mp3";
 
-const credits = [
-  "Project Director: You",
-  "Lead Developer: Also You",
-  "Philosophy Consultant: Existential Dread",
-  "Special Thanks: Free Will(?)",
-  "And you, the user.",
-  "Music Composer: Silence",
-  "Graphics Designer: Imagination",
-  "QA Tester: Murphy's Law",
-  "Inspirational Quote: 'To be or not to be.'",
-  "End of Credits: Thank you for watching."
-];
-
 export default function CreditsScroll() {
   const [showCredits, setShowCredits] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -111,19 +98,6 @@ export default function CreditsScroll() {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {showCredits && (
-            <motion.div
-              initial={{y: "-100%"}}
-              animate={{y: "1000%"}}
-              transition={{duration: 45, ease: "linear"}}
-              className="absolute top-0 left-0 w-full text-center"
-            >
-              {credits.map((line, index) => (
-                <p key={index} className="text-xl mb-4">{line}</p>
-              ))}
-            </motion.div>
-          )}
 
           {showCredits && (
             <div
