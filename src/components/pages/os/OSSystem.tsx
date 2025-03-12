@@ -9,6 +9,8 @@ import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
 import {useSystemContext} from "../../SystemContext.tsx";
 
+// TODO: Add popup to confirm exit
+
 const SettingsLists = [
   {
     Link: "",

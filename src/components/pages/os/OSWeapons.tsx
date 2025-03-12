@@ -5,6 +5,8 @@ import {YorhaNavLink} from "../../uiElements/osInterface/NavBar/YorhaNavLink.tsx
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
 
+// TODO: bring back "what are you fighting for" footer
+
 const OSWeapons = () => {
   const param = useParams();
 

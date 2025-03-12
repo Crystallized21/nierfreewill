@@ -22,7 +22,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/loados" element={<PageTransition><OSPage/></PageTransition>}/>
+          <Route path="/loados" element={
+            <PageTransition>
+              <OSPage/>
+            </PageTransition>
+          }/>
           <Route path="/test" element={<TestSite/>}/>
 
           <Route path="/os" element={<OSTransitionLayer/>}>
