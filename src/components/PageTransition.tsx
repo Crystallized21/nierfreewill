@@ -9,7 +9,7 @@ interface PageTransitionProps {
 
 const PageTransition: React.FC<PageTransitionProps> = ({children, onComplete}) => {
   const location = useLocation();
-  const animationDuration = 2.5;
+  const animationDuration = 1;
 
   const variants = {
     initial: {opacity: 0},
