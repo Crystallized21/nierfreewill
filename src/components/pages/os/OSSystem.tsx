@@ -6,6 +6,7 @@ import {motion} from "motion/react";
 import {useSearchParams} from "react-router-dom";
 import StatusModule from "../../uiElements/osInterface/StatusModule/StatusModule.tsx";
 import {useState} from "react";
+import error from "../../../assets/audio/error.mp3";
 
 const SettingsLists = [
   {
@@ -97,8 +98,16 @@ const OSSystem = () => {
                     <YorhaNavLink
                       filter={item.type}
                       text={item.Text}
+                      errorSound={error}
                       onMouseEnter={() => setHoveredItem(item.type)}
                       onMouseLeave={() => setHoveredItem(null)}
+                      onClick={(event) => {
+                        if (item.type === "exit") {
+                          alert("You can't exit the game.");
+                        } else {
+                          event?.preventDefault();
+                        }
+                      }}
                     />
                   </motion.div>
                 ))}
