@@ -2,6 +2,7 @@ import styled, {ThemeProvider} from "styled-components";
 import {NavLink, useSearchParams} from "react-router-dom";
 import * as React from "react";
 import {useSoundEffects} from "../../../../hooks/useSoundEffects.ts";
+import ShuffleTextIA from "../ShuffleTextIA.tsx";
 
 type YorhaNavLinkProps = {
   text?: React.ReactNode;
@@ -77,7 +78,7 @@ export const YorhaCustomLink = ({
           }}
         >
           <div className='wrapper'>
-            <Icon/> {text}
+            <Icon/> <ShuffleTextIA text={text as string}/>
           </div>
         </NavLink>
       </Button>
