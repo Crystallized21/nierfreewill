@@ -15,37 +15,40 @@ import PageTransition from "./components/PageTransition.tsx";
 import OSTransitionLayer from "./components/pages/os/OSTransitionLayer.tsx";
 import {AnimatePresence} from "motion/react";
 import EndofYorha from "./components/pages/EndofYorha.tsx";
+import {AudioProvider} from "./components/AudioContext.tsx";
 
 function App() {
   return (
-    <AnimatePresence mode="wait">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/loados" element={
-            <PageTransition>
-              <OSPage/>
-            </PageTransition>
-          }/>
-          <Route path="/test" element={<TestSite/>}/>
+    <AudioProvider>
+      <AnimatePresence mode="wait">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/loados" element={
+              <PageTransition>
+                <OSPage/>
+              </PageTransition>
+            }/>
+            <Route path="/test" element={<TestSite/>}/>
 
-          <Route path="/os" element={<OSTransitionLayer/>}>
-            <Route path="/os/map" element={<OSMap/>}/>
-            <Route path="/os/quest" element={<OSQuest/>}/>
-            <Route path="/os/items" element={<OSItems/>}/>
-            <Route path="/os/weapons" element={<OSWeapons/>}/>
-            <Route path="/os/skills" element={<OSSkills/>}/>
-            <Route path="/os/intel" element={<OSIntel/>}>
-              <Route path={':type'} element={<IntelModule/>}>
-                <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
+            <Route path="/os" element={<OSTransitionLayer/>}>
+              <Route path="/os/map" element={<OSMap/>}/>
+              <Route path="/os/quest" element={<OSQuest/>}/>
+              <Route path="/os/items" element={<OSItems/>}/>
+              <Route path="/os/weapons" element={<OSWeapons/>}/>
+              <Route path="/os/skills" element={<OSSkills/>}/>
+              <Route path="/os/intel" element={<OSIntel/>}>
+                <Route path={':type'} element={<IntelModule/>}>
+                  <Route path={":intelid"} element={<ActiveIntelModule/>}></Route>
+                </Route>
               </Route>
+              <Route path="/os/system" element={<OSSystem/>}/>
             </Route>
-            <Route path="/os/system" element={<OSSystem/>}/>
-          </Route>
-          <Route path="/os/system/exit" element={<EndofYorha/>}/>
-        </Routes>
-      </Router>
-    </AnimatePresence>
+            <Route path="/os/system/exit" element={<EndofYorha/>}/>
+          </Routes>
+        </Router>
+      </AnimatePresence>
+    </AudioProvider>
   );
 }
 

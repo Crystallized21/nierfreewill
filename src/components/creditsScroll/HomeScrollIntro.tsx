@@ -5,9 +5,9 @@ import {useNavigate} from "react-router-dom";
 import useSound from 'use-sound';
 import GlitchText from "./GlitchText";
 import ErrorPopup from "../uiElements/error/ErrorPopup";
+import {useAudio} from "../AudioContext";
 
 import startup from "../../assets/audio/startup.mp3";
-import music from "../../assets/audio/music1.mp3";
 import error from "../../assets/audio/error.mp3";
 
 export default function HomeScrollIntro() {
@@ -22,8 +22,8 @@ export default function HomeScrollIntro() {
   const [errorPopupStartTime, setErrorPopupStartTime] = useState<number | null>(null);
 
   const navigate = useNavigate();
+  const {playInitialMusic} = useAudio();
 
-  const [playMusic] = useSound(music);
   const [playStartup] = useSound(startup);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function HomeScrollIntro() {
   const handleStart = () => {
     setHasStarted(true);
     playStartup();
-    playMusic();
+    playInitialMusic();
   };
 
   return (
