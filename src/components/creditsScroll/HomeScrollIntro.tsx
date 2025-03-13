@@ -10,7 +10,7 @@ import startup from "../../assets/audio/startup.mp3";
 import music from "../../assets/audio/music1.mp3";
 import error from "../../assets/audio/error.mp3";
 
-export default function CreditsScroll() {
+export default function HomeScrollIntro() {
   const [showCredits, setShowCredits] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
