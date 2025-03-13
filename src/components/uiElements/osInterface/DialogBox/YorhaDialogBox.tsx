@@ -22,7 +22,7 @@ const YorhaDialogBox = ({message, onConfirm, onCancel}: DialogBoxProps) => {
           System Message
         </div>
 
-        <div className="p-4 text-lg tracking-wide flex-grow">
+        <div className="p-4 px-8 text-lg tracking-wide flex-grow">
           {message}
         </div>
 
