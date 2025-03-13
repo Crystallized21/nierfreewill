@@ -13,6 +13,7 @@ import error from "../../assets/audio/error.mp3";
 export default function CreditsScroll() {
   const [showCredits, setShowCredits] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
@@ -32,6 +33,16 @@ export default function CreditsScroll() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (hasStarted) {
+      const timer = setTimeout(() => {
+        setShowScrollIndicator(true);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [hasStarted]);
 
   useEffect(() => {
     if (showErrorPopup) {
@@ -99,17 +110,45 @@ export default function CreditsScroll() {
             )}
           </AnimatePresence>
 
-          {showCredits && (
-            <div
-              className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2"
+          {showScrollIndicator && !showCredits && (
+            <motion.div
+              className="fixed bottom-8 inset-x-0 flex flex-col items-center justify-center"
+              initial={{y: -10, opacity: 0}}
+              animate={{y: 0, opacity: 0.7}}
+              transition={{
+                y: {repeat: Infinity, repeatType: "reverse", duration: 1},
+                opacity: {duration: 0.5}
+              }}
             >
-              <GlitchText text="What is your decision?"/>
-              <div className="flex flex-col gap-6 w-full px-6">
-                <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
-                <NierButton onClick={() => setShowErrorPopup(true)} text="Quit Life." clickSound={error}/>
-              </div>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white"
+              >
+                <path
+                  d="M12 5L12 19M12 19L5 12M12 19L19 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <p className="mt-2 text-lg text-center">Scroll down</p>
+            </motion.div>
+          )} {showCredits && (
+          <div
+            className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-1/2"
+          >
+            <GlitchText text="What is your decision?"/>
+            <div className="flex flex-col gap-6 w-full px-6">
+              <NierButton onClick={() => navigate("/loados")} text="Enter OS"/>
+              <NierButton onClick={() => setShowErrorPopup(true)} text="Quit Life." clickSound={error}/>
             </div>
-          )}
+          </div>
+        )}
         </>
       )}
       {showErrorPopup && (
