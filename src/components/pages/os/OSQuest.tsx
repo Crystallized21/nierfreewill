@@ -67,7 +67,15 @@ const OSQuest = () => {
               </>
             }
             Outlet={<Outlet/>}
-            RightContent={<StatusModule/>}
+            RightContent={
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 1, ease: [.25, .75, .2, 1]}}
+              >
+                <StatusModule/>
+              </motion.div>
+            }
           />
         }
         footer="There is no more world anymore. Your Black Box is only keeping you alive."

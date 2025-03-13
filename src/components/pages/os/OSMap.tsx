@@ -54,13 +54,19 @@ const OSMap = () => {
                 {/* footer panel */}
               </div>
             </div>
-            <div className={styles.RightPanel}>
+            <motion.div
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: 1, ease: [.25, .75, .2, 1]}}
+              className={styles.RightPanel}
+            >
               <div className={styles.MapPanel}>
+
                 <h1>
                   Classified Information
                 </h1>
               </div>
-            </div>
+            </motion.div>
           </div>}
         footer={footerText}/>
     </div>
