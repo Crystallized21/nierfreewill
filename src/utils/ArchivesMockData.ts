@@ -108,6 +108,116 @@ const archivesMockData = [
                 ],
               }
             ]
+          },
+          {
+            title: "Project Gestalt Reports",
+            id: 3,
+            image: "",
+            content: [],
+            dropDownData: [
+              {
+                title: "Project Gestalt",
+                id: 6,
+                image: "",
+                content: [
+                  `
+                    The original purpose of Project Gestalt was to ensure the survival of humanity. 
+                    However, due to the outbreak of the White Chlorination Syndrome, the project was forced to change course. 
+                    The ultimate goal of Project Gestalt was to transplant human souls into Replicant bodies, 
+                    thereby ensuring the survival of the human's genetic information.
+                  `,
+                ]
+              },
+              {
+                title: "Project Gestalt: Report 1",
+                id: 7,
+                image: "",
+                content: [
+                  `
+                    March 12, 2014
+                  `,
+                  `
+                    [Summary]
+                  `,
+                  ``,
+                  `
+                    The proliferation of the White Chlorination Syndrome that emerged in 2003—alongside the appearance 
+                    of the "Giant" and "Dragon"—has continued unabated, and outbreaks are now being observed on a global 
+                    scale. Despite being researched in laboratories across the world, not only have there been no 
+                    breakthroughs in the development of a vaccine to prevent infection, we have yet to ascertain how it 
+                    even spreads.
+                  `,
+                  ``,
+                  `
+                    However, many technological breakthroughs have been made as a result of research conducted on the "
+                    maso" particle that was discovered at that same time. We are confident that the technology it 
+                    enables—the separation of the soul from the body and the independent preservation of both—will 
+                    be the final defense against the unprecedented threat to humanity we now face.
+                  `,
+                  ``,
+                  `
+                    Now that the project has passed from preparation into the main implementation phase, 
+                    we have given it the official name "Project Gestalt".
+                  `
+                ],
+              },
+              {
+                title: "Project Gestalt: Report 7",
+                id: 8,
+                image: "",
+                content: [
+                  `
+                    January 3, 2045
+                  `,
+                  `
+                    [Summary]
+                  `,
+                  ``,
+                  `
+                    It has been decided that the United Nations will launch a full-scale investigation and infiltration 
+                    operation in order to determine the cause of the massive Legion outbreak in the Tokyo area. Details 
+                    regarding the progress of Project Gestalt are to be shared as part of this effort, though we will 
+                    insist that any information which leaves the country must first be thoroughly verified by our committee.
+                  `,
+                  ``,
+                  `
+                    In particular, information regarding "relapses" (name tentative) must be kept in the strictest confidence.
+                  `
+                ]
+              },
+              {
+                title: "Project Gestalt: Report 11",
+                id: 9,
+                image: "",
+                content: [
+                  `
+                    December 31, 3361
+                  `,
+                  `
+                    [Summary]
+                  `,
+                  ``,
+                  `
+                    Due to the relapse of the Original, Gestalt units in preservation are now relapsing at an 
+                    accelerated rate. The process of recording their bodies and gathering their DNA continues, 
+                    but progress is poor.
+                  `,
+                  ``,
+                  `
+                    New countermeasures and development intended to serve as a replacement to Project Gestalt are 
+                    scheduled to be transferred to the Next Generation Preservation Project Preparation Committee. 
+                    As for this report, it will serve as the final record of both Project Gestalt and the Committee. 
+                    For information about the development plans for new android models and the refinement of existing 
+                    models, please refer to the attached sheet.
+                  `,
+                  ``,
+                  `
+                    Furthermore, we have received approval to consider the disposal of the "Devola" and "Popola" 
+                    observer models at a later date.
+                  `,
+                ]
+              },
+            ]
           }
         ]
       },
@@ -139,26 +249,6 @@ const archivesMockData = [
           },
         ],
         nestedData: [
-          {
-            title: "Standard Machines",
-            id: 3,
-            image: "",
-            content: [],
-            dropDownData: [
-              {
-                title: "Small Stubby",
-                id: 5,
-                image: "",
-                content: ["Small Stubby"],
-              },
-              {
-                title: "Multi-tier Type",
-                id: 51,
-                image: "",
-                content: ["Multi-tier Type"],
-              }
-            ]
-          },
           {
             title: "Androids",
             id: 2,
