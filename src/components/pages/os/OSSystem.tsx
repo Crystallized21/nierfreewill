@@ -9,6 +9,7 @@ import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
 import YorhaDialogBox from "../../uiElements/osInterface/DialogBox/YorhaDialogBox.tsx";
 import {useSystemContext} from "../../SystemContext.tsx";
+import { useSoundEffects } from "../../../hooks/useSoundEffects";
 
 const SettingsLists = [
   {
@@ -56,6 +57,7 @@ const SettingsLists = [
 const OSSystem = () => {
   const navigate = useNavigate();
   const {confirmExit, setConfirmExit} = useSystemContext();
+  const {playExit, playClose} = useSoundEffects();
 
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
@@ -84,11 +86,13 @@ const OSSystem = () => {
   };
 
   const handleExitConfirm = () => {
+    playExit();
     navigate("/os/system/exit");
     setConfirmExit(false);
   };
 
   const handleExitCancel = () => {
+    playClose();
     setConfirmExit(false);
   };
 
