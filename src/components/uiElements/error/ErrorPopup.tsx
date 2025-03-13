@@ -8,7 +8,7 @@ interface ErrorPopupProps {
 export default function ErrorPopup({text, x, y, seconds}: ErrorPopupProps) {
   return (
     <div
-      className="fixed bg-red-400 text-white font-sans text shadow-lg border border-red-600 z-999"
+      className="fixed bg-red-400 text-white font-sans text shadow-lg border border-red-600 z-50"
       style={{
         top: `${y}px`,
         left: `${x}px`,
@@ -20,7 +20,7 @@ export default function ErrorPopup({text, x, y, seconds}: ErrorPopupProps) {
     >
       <div className="flex justify-between items-center px-3 bg-red-500 shadow-lg">
         <span className="tracking-wider">ERROR</span>
-        <span className="text-sm">{seconds}</span>
+        <span className="text-sm font-bold">{seconds}</span>
       </div>
 
       <div
