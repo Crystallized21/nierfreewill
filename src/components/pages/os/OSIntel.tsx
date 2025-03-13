@@ -70,7 +70,15 @@ const OSIntel = () => {
               </>
             }
             Outlet={<Outlet/>}
-            RightContent={<StatusModule/>}
+            RightContent={
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0, transition: {duration: 0.5}}}
+              >
+                <StatusModule/>
+              </motion.div>
+            }
           />
         }
         footer="The only thing that remains is your memories, and the knowledge you have gained. Love your own heart."
