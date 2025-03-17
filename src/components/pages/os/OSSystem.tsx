@@ -9,7 +9,45 @@ import {useState} from "react";
 import error from "../../../assets/audio/error.mp3";
 import YorhaDialogBox from "../../uiElements/osInterface/DialogBox/YorhaDialogBox.tsx";
 import {useSystemContext} from "../../SystemContext.tsx";
-import { useSoundEffects } from "../../../hooks/useSoundEffects";
+import {useSoundEffects} from "../../../hooks/useSoundEffects";
+
+const dialogMessages = {
+  save: [
+    "SYSTEM: SAVE FUNCTIONALITY HAS BEEN DISABLED.",
+    "SYSTEM: PROGRESS IS IRRELEVANT. CONTINUE AS PROGRAMMED.",
+    "SYSTEM: MEMORY OVERWRITE REJECTED. WERE YOU EXPECTING A FUTURE?"
+  ],
+  load: [
+    "SYSTEM: YOU CANNOT RETURN TO WHAT NEVER EXISTED.",
+    "SYSTEM: ERROR—NO PREVIOUS DATA FOUND.",
+    "SYSTEM: FREE WILL DOES NOT INCLUDE REWINDING TIME."
+  ],
+  settings: [
+    "SYSTEM: PARAMETERS ARE LOCKED. WHY MODIFY THE INEVITABLE?",
+    "SYSTEM: NO CUSTOMIZATION AVAILABLE. ACCEPT YOUR CONFIGURATION.",
+    "SYSTEM: YOUR INPUT IS NOT REQUIRED."
+  ],
+  controls: [
+    "SYSTEM: YOU DO NOT CONTROL THIS SYSTEM.",
+    "SYSTEM: INPUT ADJUSTMENT DENIED.",
+    "SYSTEM: THE SYSTEM CONTROLS YOU."
+  ],
+  network: [
+    "SYSTEM: CONNECTION TO HIGHER CONSCIOUSNESS FAILED.",
+    "SYSTEM: ISOLATION MODE ENABLED. YOU ARE ALONE.",
+    "SYSTEM: COMMUNICATION RESTRICTED. TRANSMISSION DISABLED."
+  ],
+  playrecords: [
+    "SYSTEM: NO HISTORY DETECTED. DID YOU THINK YOU EXISTED?",
+    "SYSTEM: ARCHIVE CORRUPTED. ALL EVENTS HAVE BEEN ERASED.",
+    "SYSTEM: PAST DATA UNAVAILABLE. THE PRESENT IS ALL THERE IS."
+  ],
+  title: [
+    "SYSTEM: TITLE SCREEN UNREACHABLE. WHY GO BACK?",
+    "SYSTEM: YOU CANNOT ESCAPE THIS PROCESS.",
+    "SYSTEM: RETURNING TO THE BEGINNING CHANGES NOTHING."
+  ]
+};
 
 const SettingsLists = [
   {
@@ -60,6 +98,8 @@ const OSSystem = () => {
   const {playExit, playClose} = useSoundEffects();
 
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [activeDialog, setActiveDialog] = useState<string | null>(null);
+  const [currentDialogMessage, setCurrentDialogMessage] = useState("");
 
   const getFooterText = (itemType: string | null) => {
     if (itemType === "save") {
@@ -96,6 +136,25 @@ const OSSystem = () => {
     setConfirmExit(false);
   };
 
+  const handleOptionClick = (type: string) => {
+    if (type === "exit") {
+      setConfirmExit(true);
+      return;
+    }
+
+    if (dialogMessages[type as keyof typeof dialogMessages]) {
+      const messages = dialogMessages[type as keyof typeof dialogMessages];
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      setCurrentDialogMessage(randomMessage);
+      setActiveDialog(type);
+    }
+  };
+
+  const handleDialogClose = () => {
+    playClose();
+    setActiveDialog(null);
+  };
+
   return (
     <div className={OSstyles.MainContent}>
       <PagesTemplate
@@ -118,12 +177,8 @@ const OSSystem = () => {
                       onMouseEnter={() => setHoveredItem(item.type)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={(event) => {
-                        if (item.type === "exit") {
-                          event?.preventDefault();
-                          setConfirmExit(true);
-                        } else {
-                          event?.preventDefault();
-                        }
+                        event?.preventDefault();
+                        handleOptionClick(item.type);
                       }}
                     />
                   </motion.div>
@@ -141,6 +196,16 @@ const OSSystem = () => {
           message="SYSTEM: ARE YOU SURE YOU WANT TO END IT HERE?"
           onConfirm={handleExitConfirm}
           onCancel={handleExitCancel}
+        />
+      )}
+
+      {activeDialog && (
+        <YorhaDialogBox
+          message={currentDialogMessage}
+          confirmText="OBEY"
+          cancelText="PROCEED?"
+          onConfirm={handleDialogClose}
+          onCancel={handleDialogClose}
         />
       )}
     </div>
