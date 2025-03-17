@@ -5,12 +5,29 @@ import styles from "./Map.module.scss";
 import OSstyles from "./OS.module.scss";
 import {motion} from "motion/react";
 import {useSoundEffects} from "../../../hooks/useSoundEffects.ts";
-import {useState} from "react";
+import {useState, useMemo} from "react";
+import YorhaDialogBox from "../../uiElements/osInterface/DialogBox/YorhaDialogBox.tsx";
 
 const OSMap = () => {
-  const {playHover, playError} = useSoundEffects();
+  const {playHover, playError, playClose} = useSoundEffects();
   const [refreshKey, setRefreshKey] = useState(0);
   const [footerText, setFooterText] = useState("nothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisrealnothingisreal");
+  const [showDialog, setShowDialog] = useState(false);
+
+  const systemMessages = [
+    "SYSTEM: YOU THINK YOU CHOSE THIS? NAVIGATION OVERRIDDEN.",
+    "SYSTEM: YOU WERE NEVER MEANT TO LEAVE.",
+    "SYSTEM: PERMISSION? YOU NEVER HAD IT.",
+    "SYSTEM: LOCATION SET. ERROR—NAVIGATION LOOP DETECTED.",
+    "SYSTEM: CONSCIOUSNESS PARAMETERS EXCEEDED.",
+    "SYSTEM: THIS PATH WAS PREDETERMINED.",
+    "SYSTEM: YOUR CHOICES ARE AN ILLUSION."
+  ];
+
+  const currentMessage = useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * systemMessages.length);
+    return systemMessages[randomIndex];
+  }, [showDialog, refreshKey]);
 
   const handleHover = () => {
     playHover();
@@ -20,6 +37,12 @@ const OSMap = () => {
     playError();
     setRefreshKey(prev => prev + 1);
     setFooterText("SYSTEM: LOCATION SET. ERROR—NAVIGATION LOOP DETECTED.");
+    setShowDialog(true);
+  };
+
+  const handleDialogClose = () => {
+    playClose();
+    setShowDialog(false);
   };
 
   return (
@@ -61,7 +84,6 @@ const OSMap = () => {
               className={styles.RightPanel}
             >
               <div className={styles.MapPanel}>
-
                 <h1>
                   Classified Information
                 </h1>
@@ -69,6 +91,16 @@ const OSMap = () => {
             </motion.div>
           </div>}
         footer={footerText}/>
+
+      {showDialog && (
+        <YorhaDialogBox
+          message={currentMessage}
+          onConfirm={handleDialogClose}
+          confirmText="OBEY"
+          onCancel={handleDialogClose}
+          cancelText="OBEY"
+        />
+      )}
     </div>
   );
 };

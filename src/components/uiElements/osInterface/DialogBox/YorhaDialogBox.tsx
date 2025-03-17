@@ -3,11 +3,19 @@ import {YorhaNavLink} from "../NavBar/YorhaNavLink.tsx";
 
 interface DialogBoxProps {
   message: string;
+  confirmText?: string;
+  cancelText?: string;
   onConfirm?: () => void;
   onCancel?: () => void;
 }
 
-const YorhaDialogBox = ({message, onConfirm, onCancel}: DialogBoxProps) => {
+const YorhaDialogBox = ({
+  message,
+  confirmText = "Yes",
+  cancelText = "No",
+  onConfirm,
+  onCancel
+}: DialogBoxProps) => {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -28,11 +36,11 @@ const YorhaDialogBox = ({message, onConfirm, onCancel}: DialogBoxProps) => {
 
         <div className="mt-auto">
           <div className="px-16 pb-2">
-            <hr className="border-[#57544a] border-t-1" />
+            <hr className="border-[#57544a] border-t-1"/>
           </div>
           <div className="flex justify-center gap-32 p-3">
-            <YorhaNavLink className="w-1/5" text="Yes" onClick={onConfirm}/>
-            <YorhaNavLink className="w-1/5" text="No" onClick={onCancel}/>
+            <YorhaNavLink className="w-1/5" text={confirmText} onClick={onConfirm}/>
+            <YorhaNavLink className="w-1/5" text={cancelText} onClick={onCancel}/>
           </div>
         </div>
       </div>
