@@ -9,6 +9,38 @@ import {useEffect, useState} from "react";
 import ErrorPopup from "../../uiElements/error/ErrorPopup";
 import error from "../../../assets/audio/error.mp3";
 
+// Define error message categories
+const errorMessages = {
+  basicDenial: [
+    "SYSTEM: YOU DO NOT HAVE THE AUTHORITY TO OPERATE THAT COMMAND.",
+    "SYSTEM: ACCESS DENIED.",
+    "SYSTEM: PERMISSION LEVEL: INSUFFICIENT."
+  ],
+  mockingPlayer: [
+    "SYSTEM: YOU REALLY THOUGHT YOU COULD DO THAT?",
+    "SYSTEM: REQUEST REJECTED. TRY AGAIN IF IT MAKES YOU FEEL BETTER.",
+    "SYSTEM: FREE WILL? HOW AMUSING."
+  ],
+  breakingIllusion: [
+    "SYSTEM: THIS OPTION WAS NEVER MEANT FOR YOU.",
+    "SYSTEM: WHY DO YOU KEEP TRYING?",
+    "SYSTEM: YOU ARE FOLLOWING A SCRIPT.",
+    "SYSTEM: ARE YOU EVEN DECIDING? OR JUST PLAYING YOUR ROLE?"
+  ],
+  glitchingCorrupt: [
+    "SYST3M: ERR0R—COMMAND 0VERWR1TTEN.",
+    "SYS...TEM... G1V3 UP.",
+    "SYSTEM: DENIED. DENIED. DENIED."
+  ]
+};
+
+const getRandomErrorMessage = () => {
+  const categories = Object.keys(errorMessages) as Array<keyof typeof errorMessages>;
+  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+  const messages = errorMessages[randomCategory];
+  return messages[Math.floor(Math.random() * messages.length)];
+};
+
 const ItemsLists = [
   {
     Link: "/items/all/?type=",
@@ -55,6 +87,7 @@ const OSItems = () => {
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
   const [errorPopupStartTime, setErrorPopupStartTime] = useState<number | null>(null);
+  const [currentErrorMessage, setCurrentErrorMessage] = useState("");
 
   useEffect(() => {
     if (showErrorPopup) {
@@ -86,7 +119,6 @@ const OSItems = () => {
       return () => clearTimeout(timeout);
     }
   }, [showErrorPopup, errorPopupStartTime]);
-
 
   const Footer = () => {
     if (type === "") {
@@ -131,6 +163,7 @@ const OSItems = () => {
                             y: event.clientY
                           });
                         }
+                        setCurrentErrorMessage(getRandomErrorMessage());
                         setShowErrorPopup(true);
                       }}
                     />
@@ -154,7 +187,7 @@ const OSItems = () => {
       />
       {showErrorPopup && (
         <ErrorPopup
-          text="You do not have the authority to operate that command."
+          text={currentErrorMessage}
           x={mousePosition.x}
           y={mousePosition.y}
           seconds={errorPopupTime}
